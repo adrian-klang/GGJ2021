@@ -25,10 +25,11 @@ public class GameConfig : ScriptableObject {
     public float CohesionRadius = 3f;
 
     [Header("Wolf")]
-    public float FollowRadius = 3f;
-    public float SearchRadius = 10f;
-    public float WolfForce = 5f;
+    public float WolfAttackRadius = 3f;
+    public float WolfSearchRadius = 10f;
+    public float WolfMoveForce = 5f;
     public float WolfChangeTargetDiff = 20f;
+    public float WolfSecondsBeforeGettingUnscared = 3f;
 
     [Header("Day Night Cycle")]
     public float DayNightCycleSpeed = 10;

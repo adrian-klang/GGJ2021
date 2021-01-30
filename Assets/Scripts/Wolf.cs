@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Wolf : MonoBehaviour
@@ -9,10 +8,13 @@ public class Wolf : MonoBehaviour
     [HideInInspector]
     public List<GameObject> SearchRadiusSheep = new List<GameObject>();
     [HideInInspector]
-    public List<GameObject> FollowRadiusSheep = new List<GameObject>();
+    public List<GameObject> AttackRadiusSheep = new List<GameObject>();
+    [HideInInspector]
+    public bool IsScared;
+    [HideInInspector]
+    public Vector3 DogScarePosition;
 
     private Rigidbody2D rigidbody;
-    private bool isScared;
 
     private void Start()
     {
@@ -21,13 +23,13 @@ public class Wolf : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (isScared)
+        if (IsScared)
         {
-            
+            GoAwayFromDog();
         }
         else
         {
-            if (FollowRadiusSheep.Count > 0)
+            if (AttackRadiusSheep.Count > 0)
             {
                 GoToSeenSheepPosition();
             }
@@ -35,9 +37,21 @@ public class Wolf : MonoBehaviour
             {
                 GoToAvgSheepPosition();
             }
+            else
+            {
+                // wolf might have gone too far and not have any collisions with sheep - where does it go?
+                // might have scared it away forever?
+            }
         }
     }
 
+    private void GoAwayFromDog()
+    {
+        var forceToAdd = (transform.position - DogScarePosition).normalized * Config.WolfMoveForce;
+        
+        rigidbody.AddForce(forceToAdd);
+    }
+    
     private void GoToAvgSheepPosition()
     {
         var avgPosition = Vector3.zero;
@@ -49,18 +63,18 @@ public class Wolf : MonoBehaviour
 
         avgPosition /= SearchRadiusSheep.Count;
         
-        var forceToAdd = (avgPosition - transform.position).normalized * Config.WolfForce;
+        var forceToAdd = (avgPosition - transform.position).normalized * Config.WolfMoveForce;
         
         rigidbody.AddForce(forceToAdd);
     }
 
     private void GoToSeenSheepPosition()
     {
-        GameObject closestSheep = FollowRadiusSheep[0];
+        GameObject closestSheep = AttackRadiusSheep[0];
         var wolfPos = transform.position;
         float closestDistSqrd = Mathf.Infinity;
         
-        foreach (var sheep in FollowRadiusSheep)
+        foreach (var sheep in AttackRadiusSheep)
         {
             var sheepPos = sheep.transform.position;
             var sqrdDist = wolfPos.x * sheepPos.x + wolfPos.y * sheepPos.y + wolfPos.z * sheepPos.z;
@@ -72,7 +86,7 @@ public class Wolf : MonoBehaviour
             }
         }
         
-        var forceToAdd = (closestSheep.transform.position - transform.position).normalized * Config.WolfForce;
+        var forceToAdd = (closestSheep.transform.position - transform.position).normalized * Config.WolfMoveForce;
         
         rigidbody.AddForce(forceToAdd);
     }

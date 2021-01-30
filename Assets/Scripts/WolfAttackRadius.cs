@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
-public class WolfSearchRadius : MonoBehaviour
+public class WolfAttackRadius : MonoBehaviour
 {
     private Wolf wolf;
     private GameConfig Config;
@@ -12,12 +13,12 @@ public class WolfSearchRadius : MonoBehaviour
         Config = wolf.Config;
         collider = GetComponent<CircleCollider2D>();
     }
-
+    
     private void Update()
     {
-        collider.radius = Config.WolfSearchRadius;
+        collider.radius = Config.WolfAttackRadius;
     }
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Sheep"))
@@ -25,8 +26,14 @@ public class WolfSearchRadius : MonoBehaviour
             var sheep = other.GetComponent<Sheep>();
             if (sheep.Tamed)
             {
-                wolf.SearchRadiusSheep.Add(other.gameObject);
+                wolf.AttackRadiusSheep.Add(other.gameObject);
             }
+        }
+
+        if (other.CompareTag("Dog"))
+        {
+            wolf.IsScared = true;
+            wolf.DogScarePosition = other.gameObject.transform.position;
         }
     }
     
@@ -37,8 +44,20 @@ public class WolfSearchRadius : MonoBehaviour
             var sheep = other.GetComponent<Sheep>();
             if (sheep.Tamed)
             {
-                wolf.SearchRadiusSheep.Remove(other.gameObject);
+                wolf.AttackRadiusSheep.Remove(other.gameObject);
             }
         }
+        
+        if (other.CompareTag("Dog"))
+        {
+            StartCoroutine(GetUnscared());
+        }
+    }
+
+    private IEnumerator GetUnscared()
+    {
+        yield return new WaitForSeconds(Config.WolfSecondsBeforeGettingUnscared);
+
+        wolf.IsScared = false;
     }
 }
