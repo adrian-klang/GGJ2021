@@ -1,10 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DogPullRadius : MonoBehaviour
-{
+public class DogPullRadius : MonoBehaviour {
+    public GameConfig GameConfig;
+    public CircleCollider2D circleCollider;
+    
     private List<Sheep> sheeps = new List<Sheep>();
+    
+    private void Update() {
+        circleCollider.radius = GameConfig.DogPullRadius;
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         var sheep = other.GetComponent<Sheep>();

@@ -141,9 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50edd68505de423419498db116cd73ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveForce: 10
-  PushForce: 10
-  PullForce: 10
+  GameConfig: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
   Rigidbody: {fileID: -3934019430003032452}
   PushRadius: {fileID: 8290920310672130174}
   PullRadius: {fileID: 7322378796246888943}
@@ -244,6 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79c930ebcef87e4b9c1201b0fa3abc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameConfig: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
+  circleCollider: {fileID: 8828768537033443662}
 --- !u!1 &9204685949176955673
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,3 +304,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f9a6ccdf5d0c244872238e266a58cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameConfig: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
+  circleCollider: {fileID: 5820104477944744741}
