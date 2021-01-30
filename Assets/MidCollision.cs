@@ -6,11 +6,11 @@ using UnityEngine;
 /// </summary>
 public class MidCollision : MonoBehaviour
 {
-    private FlockingBehaviour flockingBehaviour;
+    private Sheep sheep;
 
     private void Start()
     {
-        flockingBehaviour = GetComponentInParent<FlockingBehaviour>();
+        sheep = GetComponentInParent<Sheep>();
     } 
 
     private void OnTriggerEnter2D(Collider2D other)
