@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class Wolf : MonoBehaviour
@@ -20,7 +19,10 @@ public class Wolf : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        AllSheep = GameObject.FindGameObjectsWithTag("Sheep").ToList();
+        foreach (var sheep in SheepManager.Sheeps)
+        {
+            AllSheep.Add(sheep.gameObject);
+        }
     }
     
     private void FixedUpdate()

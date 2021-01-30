@@ -42,6 +42,7 @@ public class GameConfig : ScriptableObject {
 
     [Header("Shop")]
     public int TamedSheepCoins = 1;
+    public int AliveSheepCoins = 1;
     public int StartingCoinsCount;
     public int FenceValue = 10;
     public int WolfTrapValue = 10;

@@ -12,6 +12,7 @@ public class Spawner : MonoBehaviour
     public GameConfig Config;
     public LevelConfig LevelConfig;
     public DayNightCycle DayNightCycle;
+    public PlayerWallet PlayerWallet;
     
     private EntityManager entityManager;
     private EntityArchetype entityArchetype;
@@ -38,6 +39,7 @@ public class Spawner : MonoBehaviour
         else if (spawnedWolves && DayNightCycle.IsItDay())
         {
             Debug.Log("It's day");
+            AddCoinsPerSheep();
             spawnedWolves = false;
         }
     }
@@ -45,10 +47,10 @@ public class Spawner : MonoBehaviour
     private void SpawnSheep()
     {
         // TODO: uncomment in final level when removing random spawn of sheep
-        // var allSheep = GameObject.FindGameObjectsWithTag("Sheep");
+        // var allSheep = SheepManager.Sheeps;
         // for (int i = 0; i < allSheep.Length; i++)
         // {
-        //     var sheep = allSheep[i];
+        //     var sheep = allSheep[i].gameObject;
         //     
         //     CreateInstance(entityArchetype, i, sheep.transform.position, sheep);
         // }
@@ -69,6 +71,17 @@ public class Spawner : MonoBehaviour
             var spawnPos = LevelConfig.WolfSpawners[Random.Range(0, LevelConfig.WolfSpawners.Count - 1)].position;
 
             Instantiate(Wolf, spawnPos, Wolf.transform.rotation);
+        }
+    }
+    
+    private void AddCoinsPerSheep()
+    {
+        foreach (var sheep in SheepManager.Sheeps)
+        {
+            if (sheep.Tamed)
+            {
+                PlayerWallet.AddCoins(Config.AliveSheepCoins);
+            }
         }
     }
     
