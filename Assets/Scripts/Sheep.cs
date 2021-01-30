@@ -17,12 +17,15 @@ public class Sheep : MonoBehaviour {
         set {
             if (tamed != value) {
                 tamed = value;
-                OnSetTamed();
+                OnSetTamed(value);
             }
         }
     }
 
-    private void OnSetTamed() {
+    private void OnSetTamed(bool tamed) {
+        if (tamed) {
+            PlayerWallet.Instance.AddCoins(Config.TamedSheepCoins);
+        }
     }
 
     private void OnEnable() {

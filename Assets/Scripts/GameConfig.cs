@@ -39,6 +39,7 @@ public class GameConfig : ScriptableObject {
     public float Distance = 10;
 
     [Header("Shop")]
+    public int TamedSheepCoins = 1;
     public int StartingCoinsCount;
     public int FenceValue = 10;
     public int WolfTrapValue = 10;

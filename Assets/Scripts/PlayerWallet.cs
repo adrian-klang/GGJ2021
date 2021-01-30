@@ -6,6 +6,16 @@ public class PlayerWallet : MonoBehaviour {
     
     private int TotalCoins = 0;
 
+    public static PlayerWallet Instance;
+
+    private void Awake() {
+        Instance = this;
+    }
+
+    private void OnDestroy() {
+        Instance = null;
+    }
+
     private void Start() {
         TotalCoins = Config.StartingCoinsCount;
     }
