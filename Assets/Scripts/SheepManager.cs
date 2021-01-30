@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SheepManager : MonoBehaviour {
-    private static List<Sheep> Sheeps = new List<Sheep>(128);
+    public static List<Sheep> Sheeps = new List<Sheep>(128);
 
     public GameConfig Config;
 
