@@ -34,9 +34,9 @@ public class Sheep : MonoBehaviour
             AddForceOuter();
         }
         
-        inner.radius = Config.InnerRadius;
-        mid.radius = Config.MidRadius;
-        outer.radius = Config.OuterRadius;
+        inner.radius = Config.SeparationRadius;
+        mid.radius = Config.AlignmentRadius;
+        outer.radius = Config.CohesionRadius;
     }
 
     private void AddForceInner()
@@ -50,7 +50,7 @@ public class Sheep : MonoBehaviour
 
         avgPosition /= InnerCollisions.Count;
         
-        var forceToApply = (transform.position - avgPosition).normalized * Config.InnerForceMultiplier;
+        var forceToApply = (transform.position - avgPosition).normalized * Config.SeparationForce;
         
         Rigidbody.AddForce(forceToApply);
     }
@@ -68,7 +68,7 @@ public class Sheep : MonoBehaviour
 
         avgVelocity /= MidCollisions.Count;
 
-        var forceToApply = avgVelocity * Config.MidForceMultiplier;
+        var forceToApply = avgVelocity * Config.AlignmentForce;
         
         Rigidbody.AddForce(forceToApply);
     }
@@ -84,7 +84,7 @@ public class Sheep : MonoBehaviour
 
         avgPosition /= OuterCollisions.Count;
 
-        var forceToApply = (avgPosition - transform.position).normalized * Config.OuterForceMultiplier;
+        var forceToApply = (avgPosition - transform.position).normalized * Config.CohesionForce;
 
         Rigidbody.AddForce(forceToApply);
     }
