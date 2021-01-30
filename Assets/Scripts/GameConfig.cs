@@ -22,4 +22,7 @@ public class GameConfig : ScriptableObject {
     public float SeparationRadius = 1f;
     public float AlignmentRadius = 2f;
     public float CohesionRadius = 3f;
+
+    [Header("Day Night Cycle")]
+    public float DayNightCycleSpeed = 10;
 }
