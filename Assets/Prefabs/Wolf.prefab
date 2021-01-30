@@ -137,7 +137,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
   SearchRadiusSheep: []
-  FollowRadiusSheep: []
+  AttackRadiusSheep: []
+  IsScared: 0
+  DogScarePosition: {x: 0, y: 0, z: 0}
 --- !u!1 &228106274079780855
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ GameObject:
   - component: {fileID: 228106274507634975}
   - component: {fileID: 228106274507634974}
   m_Layer: 0
-  m_Name: FollowRadius
+  m_Name: AttackRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

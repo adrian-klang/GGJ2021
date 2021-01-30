@@ -40,23 +40,19 @@ public class Dog : MonoBehaviour {
         
         // Pull
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("DOG PULL - ON");
             pull = true;
         }
         
         if (Input.GetMouseButtonUp(0)) {
-            Debug.Log("DOG PULL - OFF");
             pull = false;
         }
         
         // Push
         if (Input.GetMouseButtonDown(1)) {
-            Debug.Log("DOG PUSH - ON");
             push = true;
         }
 
         if (Input.GetMouseButtonUp(1)) {
-            Debug.Log("DOG PUSH - OFF");
             push = false;
         }
     }
