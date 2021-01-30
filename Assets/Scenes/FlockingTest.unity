@@ -335,7 +335,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 25
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -395,8 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sheep: {fileID: 9135522774225537305, guid: 1a5be0ef12427104db9efb6a5d0c3b72, type: 3}
-  agentsAmount: 150
-  spawnRadius: 10
+  Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
 --- !u!4 &1751504368
 Transform:
   m_ObjectHideFlags: 0

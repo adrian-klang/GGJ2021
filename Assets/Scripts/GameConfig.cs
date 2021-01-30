@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game/Config)")]
 public class GameConfig : ScriptableObject {
+    [Header("Manager")]
+    public int AgentsAmount = 10;
+    public float SpawnRadius = 5f;
+    
     [Header("Dog")]
     public float DogMoveForce = 10;
     public float DogPushForce = 10;

@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a276796d6bbd30458e7fbbaec30ab90, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
+  AgentsAmount: 10
+  SpawnRadius: 5
   DogMoveForce: 10
   DogPushForce: 10
   DogPushRadius: 10
   DogPullForce: 4
   DogPullRadius: 10
-  InnerForceMultiplier: 1
-  MidForceMultiplier: 1.5
-  OuterForceMultiplier: 1
-  InnerRadius: 1
-  MidRadius: 2
-  OuterRadius: 3
+  SeparationForce: 10
+  AlignmentForce: 1.5
+  CohesionForce: 1
+  SeparationRadius: 1
+  AlignmentRadius: 2
+  CohesionRadius: 3
