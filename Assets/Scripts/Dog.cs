@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Dog : MonoBehaviour {
-    public float MoveForce = 10;
-    public float PushForce = 10;
-    public float PullForce = 10;
+    public GameConfig GameConfig;
     
     [Space]
     public Rigidbody2D Rigidbody;
@@ -65,15 +63,15 @@ public class Dog : MonoBehaviour {
 
     private void FixedUpdate() {
         if (moveDir != Vector2.zero) {
-            Rigidbody.AddForce(moveDir * MoveForce);
+            Rigidbody.AddForce(moveDir * GameConfig.DogMoveForce);
         }
 
         if (push) {
-            PushRadius.Apply(PushForce);
+            PushRadius.Apply(GameConfig.DogPushForce);
         }
 
         if (pull) {
-            PullRadius.Apply(PullForce);
+            PullRadius.Apply(GameConfig.DogPullForce);
         }
     }
 }
