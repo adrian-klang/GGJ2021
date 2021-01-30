@@ -74,4 +74,16 @@ public class Dog : MonoBehaviour {
             PullRadius.Apply(GameConfig.DogPullForce);
         }
     }
+
+    private void OnDrawGizmos() {
+        var col = Gizmos.color;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, GameConfig.DogPullRadius);
+        
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, GameConfig.DogPushRadius);
+
+        Gizmos.color = col;
+    }
 }
