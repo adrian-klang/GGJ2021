@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
         
         for (int i = 0; i < Config.AgentsAmount; i++)
         {
-            var position = new Vector2(Random.Range(-Config.SpawnRadius * 0.5f, Config.SpawnRadius * 0.5f), Random.Range(-Config.SpawnRadius * 0.5f, Config.SpawnRadius * 0.5f));
+            var position = new Vector2(Random.Range(-Config.SpawnWorldWidth * 0.5f, Config.SpawnWorldWidth * 0.5f), Random.Range(-Config.SpawnWorldLength * 0.5f, Config.SpawnWorldLength * 0.5f));
             Instantiate(sheep, position, Quaternion.identity);
         }
     }
