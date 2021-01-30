@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Follow direction of agent
@@ -15,11 +14,11 @@ public class MidCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        sheep.MidCollisions.Add(other.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        
+        sheep.MidCollisions.Remove(other.gameObject);
     }
 }

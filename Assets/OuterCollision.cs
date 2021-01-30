@@ -14,11 +14,11 @@ public class OuterCollision : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        sheep.OuterCollisions.Add(other.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        
+        sheep.OuterCollisions.Remove(other.gameObject);
     }
 }
