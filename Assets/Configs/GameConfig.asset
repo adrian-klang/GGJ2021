@@ -25,3 +25,9 @@ MonoBehaviour:
   SeparationRadius: 1
   AlignmentRadius: 2
   CohesionRadius: 3
+  FollowRadius: 3
+  SearchRadius: 10
+  WolfForce: 5
+  DayNightCycleSpeed: 10
+  FollowDamp: 0.713
+  Distance: 20
