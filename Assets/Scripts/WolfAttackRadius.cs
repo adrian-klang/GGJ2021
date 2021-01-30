@@ -23,7 +23,11 @@ public class WolfAttackRadius : MonoBehaviour
     {
         if (other.CompareTag("Sheep"))
         {
-            wolf.AttackRadiusSheep.Add(other.gameObject);
+            var sheep = other.GetComponent<Sheep>();
+            if (sheep.Tamed)
+            {
+                wolf.AttackRadiusSheep.Add(other.gameObject);
+            }
         }
 
         if (other.CompareTag("Dog"))
@@ -37,7 +41,11 @@ public class WolfAttackRadius : MonoBehaviour
     {
         if (other.CompareTag("Sheep"))
         {
-            wolf.AttackRadiusSheep.Remove(other.gameObject);
+            var sheep = other.GetComponent<Sheep>();
+            if (sheep.Tamed)
+            {
+                wolf.AttackRadiusSheep.Remove(other.gameObject);
+            }
         }
         
         if (other.CompareTag("Dog"))
