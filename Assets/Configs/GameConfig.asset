@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a276796d6bbd30458e7fbbaec30ab90, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  AgentsAmount: 10
-  SpawnRadius: 5
+  AgentsAmount: 200
+  SpawnRadius: 30
   DogMoveForce: 10
   DogPushForce: 10
   DogPushRadius: 10
