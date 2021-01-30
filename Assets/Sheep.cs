@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// manager per-agent
 /// </summary>
-public class FlockingBehaviour : MonoBehaviour
+public class Sheep : MonoBehaviour
 {
-    private List<GameObject>
+    private List<GameObject> innerCollisions = new List<GameObject>();
+    private List<GameObject> midCollisions = new List<GameObject>();
+    private List<GameObject> outerCollisions = new List<GameObject>();
     
     private void FixedUpdate()
     {
@@ -17,7 +20,8 @@ public class FlockingBehaviour : MonoBehaviour
         // multiplier for force
         // modify radius of collider at runtime
     }
-    
+
+
     // add sheep
     // remove sheep
 }
