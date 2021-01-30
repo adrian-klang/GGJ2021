@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Unity.Collections;
+using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using UnityEngine;
@@ -11,6 +12,7 @@ using UnityEngine;
 public class Sheep : MonoBehaviour {
     public GameConfig Config;
     public Rigidbody2D Rigidbody;
+    public Entity sheepEntity;
 
     // Is this sheep owned by the player
     private bool tamed;
@@ -19,12 +21,15 @@ public class Sheep : MonoBehaviour {
         set {
             if (tamed != value) {
                 tamed = value;
-                OnSetTamed();
+                OnSetTamed(value);
             }
         }
     }
 
-    private void OnSetTamed() {
+    private void OnSetTamed(bool tamed) {
+        if (tamed) {
+            PlayerWallet.Instance.AddCoins(Config.TamedSheepCoins);
+        }
     }
 
     private void OnEnable() {

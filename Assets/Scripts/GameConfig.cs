@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Game/Config)")]
+[CreateAssetMenu(menuName = "Game/GameConfig")]
 public class GameConfig : ScriptableObject {
     [Header("Manager")]
-    public int AgentsAmount = 10;
+    public int SheepAmount = 10;
     public float SpawnWorldWidth = 5f;
     public float SpawnWorldLength = 5f;
     
@@ -26,16 +26,27 @@ public class GameConfig : ScriptableObject {
 
     [Header("Wolf")]
     public float WolfAttackRadius = 3f;
-    public float WolfSearchRadius = 10f;
     public float WolfMoveForce = 5f;
-    public float WolfChangeTargetDiff = 20f;
+    public float WolfChangeTargetDiff = 10f;
     public float WolfSecondsBeforeGettingUnscared = 3f;
 
     [Header("Day Night Cycle")]
-    public float DayNightCycleSpeed = 10;
+    public float DayNightCycleDurationInSeconds = 10;
+    [Range(0, 1)]
+    public float DayNightThreshold = 0.75f;
 
     [Header("Camera")]
     [Range(0, 1)]
     public float FollowDamp = 0.5f;
     public float Distance = 10;
+
+    [Header("Shop")]
+    public int TamedSheepCoins = 1;
+    public int AliveSheepCoins = 1;
+    public int StartingCoinsCount;
+    public int FenceValue = 10;
+    public int WolfTrapValue = 10;
+
+    [Header("UI")]
+    public float MessageTextTimeout = 3;
 }

@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
+using Unity.Entities;
 using UnityEngine;
 
-public class Wolf : MonoBehaviour
-{
+public class Wolf : MonoBehaviour {
     public GameConfig Config;
-    
-    [HideInInspector]
-    public List<GameObject> SearchRadiusSheep = new List<GameObject>();
+
     [HideInInspector]
     public List<GameObject> AttackRadiusSheep = new List<GameObject>();
     [HideInInspector]
@@ -16,86 +14,77 @@ public class Wolf : MonoBehaviour
 
     private Rigidbody2D rigidbody;
 
-    private void Start()
-    {
+    private void Start() {
         rigidbody = GetComponent<Rigidbody2D>();
     }
-    
-    private void FixedUpdate()
-    {
-        if (IsScared)
-        {
+
+    private void FixedUpdate() {
+        if (IsScared) {
             GoAwayFromDog();
-        }
-        else
-        {
-            if (AttackRadiusSheep.Count > 0)
-            {
+        } else {
+            if (AttackRadiusSheep.Count > 0) {
                 GoToSeenSheepPosition();
-            }
-            else if (SearchRadiusSheep.Count > 0)
-            {
+            } else if (SheepManagerSystem.Sheeps.Count > 0) {
                 GoToAvgSheepPosition();
-            }
-            else
-            {
-                // wolf might have gone too far and not have any collisions with sheep - where does it go?
-                // might have scared it away forever?
             }
         }
     }
 
-    private void GoAwayFromDog()
-    {
+    private void GoAwayFromDog() {
         var forceToAdd = (transform.position - DogScarePosition).normalized * Config.WolfMoveForce;
-        
+
         rigidbody.AddForce(forceToAdd);
     }
-    
-    private void GoToAvgSheepPosition()
-    {
+
+    private void GoToAvgSheepPosition() {
         var avgPosition = Vector3.zero;
-        
-        foreach (var sheep in SearchRadiusSheep)
-        {
+
+        foreach (var sheep in SheepManagerSystem.Sheeps) {
+            if (sheep == null || !sheep.GetComponent<Sheep>().Tamed) {
+                continue;
+            }
+
             avgPosition += sheep.transform.position;
         }
 
-        avgPosition /= SearchRadiusSheep.Count;
-        
+        avgPosition /= SheepManagerSystem.Sheeps.Count;
+
         var forceToAdd = (avgPosition - transform.position).normalized * Config.WolfMoveForce;
-        
+
         rigidbody.AddForce(forceToAdd);
     }
 
-    private void GoToSeenSheepPosition()
-    {
+    private void GoToSeenSheepPosition() {
         GameObject closestSheep = AttackRadiusSheep[0];
         var wolfPos = transform.position;
         float closestDistSqrd = Mathf.Infinity;
-        
-        foreach (var sheep in AttackRadiusSheep)
-        {
+
+        foreach (var sheep in AttackRadiusSheep) {
             var sheepPos = sheep.transform.position;
             var sqrdDist = wolfPos.x * sheepPos.x + wolfPos.y * sheepPos.y + wolfPos.z * sheepPos.z;
-            
+
             if (sqrdDist < closestDistSqrd + Config.WolfChangeTargetDiff) // add offset to avoid changing target continuously
             {
                 closestDistSqrd = sqrdDist;
                 closestSheep = sheep;
             }
         }
-        
+
         var forceToAdd = (closestSheep.transform.position - transform.position).normalized * Config.WolfMoveForce;
-        
+
         rigidbody.AddForce(forceToAdd);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Sheep"))
-        {
-            Destroy(other.gameObject);
+    private void OnCollisionEnter2D(Collision2D other) {
+        var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+        
+        if (other.gameObject.CompareTag("Sheep")) {
+            if (other.gameObject.GetComponent<Sheep>().Tamed) {
+                var sheep = other.gameObject.GetComponent<Sheep>();
+                SheepManagerSystem.Sheeps.Remove(sheep);
+                Destroy(other.gameObject);
+                entityManager.DestroyEntity(sheep.sheepEntity);
+            }
         }
     }
 }
