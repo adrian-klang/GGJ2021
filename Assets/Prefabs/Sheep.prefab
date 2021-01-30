@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 9135522774225537306}
   - component: {fileID: 9135522774225537307}
   - component: {fileID: 9135522774225537304}
+  - component: {fileID: 2078617701}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Sheep
@@ -218,12 +219,37 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2078617701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9135522774225537305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfacc31cf5d026446a919e39fcd404ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rigidbody: {fileID: 9135522774225537304}
+  inner: {fileID: 9135522774739348559}
+  mid: {fileID: 9135522774111644025}
+  outer: {fileID: 9135522773735679984}
+  InnerForceMultiplier: 1
+  MidForceMultiplier: 1
+  OuterForceMultiplier: 1
+  InnerRadius: 1
+  MidRadius: 2
+  OuterRadius: 3
+  InnerCollisions: []
+  MidCollisions: []
+  OuterCollisions: []
 --- !u!1 &9135522774739348562
 GameObject:
   m_ObjectHideFlags: 0

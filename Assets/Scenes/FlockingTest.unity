@@ -213,24 +213,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!58 &419763506 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 9135522774739348559, guid: 1a5be0ef12427104db9efb6a5d0c3b72,
-    type: 3}
-  m_PrefabInstance: {fileID: 9135522775125031293}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1153110020 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 9135522774111644025, guid: 1a5be0ef12427104db9efb6a5d0c3b72,
-    type: 3}
-  m_PrefabInstance: {fileID: 9135522775125031293}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1590746765 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 9135522773735679984, guid: 1a5be0ef12427104db9efb6a5d0c3b72,
-    type: 3}
-  m_PrefabInstance: {fileID: 9135522775125031293}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1692692403
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,37 +352,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2078617700 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9135522774225537305, guid: 1a5be0ef12427104db9efb6a5d0c3b72,
-    type: 3}
-  m_PrefabInstance: {fileID: 9135522775125031293}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2078617701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078617700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfacc31cf5d026446a919e39fcd404ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Rigidbody: {fileID: 9135522775125031294}
-  inner: {fileID: 419763506}
-  mid: {fileID: 1153110020}
-  outer: {fileID: 1590746765}
-  InnerForceMultiplier: 1
-  MidForceMultiplier: 1
-  OuterForceMultiplier: 1
-  InnerRadius: 1
-  MidRadius: 2
-  OuterRadius: 3
-  InnerCollisions: []
-  MidCollisions: []
-  OuterCollisions: []
 --- !u!1001 &9135522775125031293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -470,9 +421,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a5be0ef12427104db9efb6a5d0c3b72, type: 3}
---- !u!50 &9135522775125031294 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 9135522774225537304, guid: 1a5be0ef12427104db9efb6a5d0c3b72,
-    type: 3}
-  m_PrefabInstance: {fileID: 9135522775125031293}
-  m_PrefabAsset: {fileID: 0}

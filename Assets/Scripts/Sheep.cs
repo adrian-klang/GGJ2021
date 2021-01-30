@@ -60,7 +60,7 @@ public class Sheep : MonoBehaviour
         foreach (var sheep in InnerCollisions)
         {
             // todo: remove getcomponent
-            var rigidbody = sheep.GetComponent<Rigidbody2D>();
+            var rigidbody = sheep.GetComponentInParent<Rigidbody2D>();
             avgVelocity += rigidbody.velocity;
         }
 
