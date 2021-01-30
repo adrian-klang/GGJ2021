@@ -1,109 +1,132 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Unity.Burst;
+using Unity.Collections;
+using Unity.Entities;
+using Unity.Jobs;
+using Unity.Mathematics;
+using Unity.Transforms;
 using UnityEngine;
 
-public class SheepManager : MonoBehaviour {
+public class SheepManagerSystem : ComponentSystem {
     public static List<Sheep> Sheeps = new List<Sheep>(128);
+    private static GameConfig Config;
 
-    public GameConfig Config;
+    protected override void OnUpdate() {
+        if (Config == null) {
+            Config = Resources.Load<GameConfig>("GameConfig");
+            NativeLeakDetection.Mode = NativeLeakDetectionMode.EnabledWithStackTrace;
+        }
 
-    private float separationSqrRadius;
-    private float alignmentSqrRadius;
-    private float cohesionSqrRadius;
-    
-    private List<Vector2> separationVectors = new List<Vector2>();
-    private List<Vector2> alignmentVectors = new List<Vector2>();
-    private List<Vector2> cohesionVectors = new List<Vector2>();
-    
-    public static void RegisterSheep(Sheep sheep) {
-        Sheeps.Add(sheep);
+        var sheepQuery = GetEntityQuery(typeof(SheepRenderer), typeof(Translation));
+        var inputTranslations = sheepQuery.ToComponentDataArray<Translation>(Allocator.TempJob);
+        var inputVelocities = new NativeArray<float2>(Sheeps.Count, Allocator.TempJob);
+        for (var i = 0; i < Sheeps.Count; i++) {
+            inputVelocities[i] = Sheeps[i].Rigidbody.velocity.normalized;
+        }
+        
+        var results = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
+        var sheepFlockingJobs = new SheepFlockingJob {
+                InputTranslations = inputTranslations,
+                InputVelocities = inputVelocities,
+                AlignmentForce = Config.AlignmentForce,
+                alignmentSqrRadius = Config.AlignmentRadius * Config.AlignmentRadius,
+                CohesionForce = Config.CohesionForce,
+                cohesionSqrRadius = Config.CohesionRadius * Config.CohesionRadius,
+                SeparationForce = Config.SeparationForce,
+                separationSqrRadius = Config.SeparationRadius * Config.SeparationRadius,
+                OutputResults = results
+        };
+
+        sheepFlockingJobs.Schedule(Sheeps.Count, 64).Complete();
+
+        inputTranslations.Dispose();
+        inputVelocities.Dispose();
+        results.Dispose();
     }
 
-    public static void DeregisterSheep(Sheep sheep) {
-        Sheeps.Remove(sheep);
-    }
+    [BurstCompile(CompileSynchronously = true)]
+    private struct SheepFlockingJob : IJobParallelFor {
+        [ReadOnly]
+        public NativeArray<Translation> InputTranslations;
+        [ReadOnly]
+        public NativeArray<float2> InputVelocities;
+        [ReadOnly]
+        public float alignmentSqrRadius;
+        [ReadOnly]
+        public float separationSqrRadius;
+        [ReadOnly]
+        public float cohesionSqrRadius;
+        [ReadOnly]
+        public float AlignmentForce;
+        [ReadOnly]
+        public float SeparationForce;
+        [ReadOnly]
+        public float CohesionForce;
 
-    private void Update() {
-        separationSqrRadius = Config.SeparationRadius * Config.SeparationRadius;
-        alignmentSqrRadius = Config.AlignmentRadius * Config.AlignmentRadius;
-        cohesionSqrRadius = Config.CohesionRadius * Config.CohesionRadius;
-    }
+        [WriteOnly]
+        public NativeArray<float3> OutputResults;
 
-    private void FixedUpdate() {
-        foreach (var sheepOne in Sheeps) {
-            
-            separationVectors.Clear();
-            alignmentVectors.Clear();
-            cohesionVectors.Clear();
-            
-            Vector2 posOne = sheepOne.transform.position;
-            
-            foreach (var sheepTwo in Sheeps) {
-                if (sheepOne == sheepTwo) {
+        public void Execute(int i) {
+            var posOne = InputTranslations[i].Value.xy;
+
+            var cohesionVector = new float2();
+            var cohesionCount = 0;
+            var separationVector = new float2();
+            var separationCount = 0;
+            var alignmentVector = new float2();
+            var alignmentCount = 0;
+
+            for (var j = 0; j < InputTranslations.Length; j++) {
+                if (i == j) {
                     continue;
                 }
-                
-                Vector2 posTwo = sheepTwo.transform.position;
+
+                var posTwo = InputTranslations[j].Value;
+                var velocityTwo = InputVelocities[j];
 
                 var sqrDist = (posOne.x - posTwo.x) * (posOne.x - posTwo.x) + (posOne.y - posTwo.y) * (posOne.y - posTwo.y);
 
                 if (sqrDist < separationSqrRadius) {
-                    separationVectors.Add(posTwo);
+                    separationVector += posTwo.xy;
+                    separationCount++;
                 }
 
                 if (sqrDist < alignmentSqrRadius) {
-                    alignmentVectors.Add(sheepTwo.Rigidbody.velocity.normalized);
+                    alignmentVector += velocityTwo;
+                    alignmentCount++;
                 }
 
                 if (sqrDist < cohesionSqrRadius) {
-                    cohesionVectors.Add(posTwo);
+                    cohesionVector += posTwo.xy;
+                    cohesionCount++;
                 }
             }
 
-            var totalForce = Vector2.zero;
+            var tamed = false;
+            var totalForce = new float2();
 
-            if (cohesionVectors.Count > 0) {
-                var avgPos = Vector2.zero;
-                foreach (var vector2 in cohesionVectors) {
-                    avgPos += vector2;
-                }
-
-                avgPos /= cohesionVectors.Count;
-
-                totalForce += (avgPos - posOne).normalized * Config.CohesionForce;
-
-                sheepOne.Tamed = true;
-            }
-            
-            
-            if (separationVectors.Count > 0) {
-                var avgPos = Vector2.zero;
-                foreach (var vector2 in separationVectors) {
-                    avgPos += vector2;
-                }
-
-                avgPos /= separationVectors.Count;
-
-                totalForce += (posOne - avgPos).normalized * Config.SeparationForce;
-                
-                sheepOne.Tamed = true;
+            if (cohesionCount > 0) {
+                cohesionVector /= cohesionCount;
+                totalForce += math.normalize(cohesionVector - posOne) * CohesionForce;
+                tamed = true;
             }
 
-            if (alignmentVectors.Count > 0) {
-                var avgDir = Vector2.zero;
-                foreach (var vector2 in alignmentVectors) {
-                    avgDir += vector2;
+            if (separationCount > 0) {
+                separationVector /= separationCount;
+                totalForce += math.normalize(posOne - separationVector) * SeparationForce;
+                tamed = true;
+            }
+
+            if (alignmentCount > 0) {
+                if (alignmentVector.x != 0.0f && alignmentVector.y != 0.0f) {
+                    alignmentVector /= alignmentCount;
+                    totalForce += math.normalize(alignmentVector) * AlignmentForce;
                 }
 
-                avgDir /= alignmentVectors.Count;
-
-                totalForce += avgDir.normalized * Config.AlignmentForce;
-                
-                sheepOne.Tamed = true;
+                tamed = true;
             }
-            
-            sheepOne.Rigidbody.AddForce(totalForce);
+
+            OutputResults[i] = new float3(totalForce.x, totalForce.y, tamed ? 1.0f : 0.0f);
         }
     }
 }

@@ -12,7 +12,7 @@ public class SheepRendererSystem : ComponentSystem {
             
             var sheepMatrices = new NativeArray<LocalToWorld>(SheepScriptableRendererFeature.MAX_SHEEP, Allocator.Temp);
             int sheepIdx = 0;
-            foreach (var sheep in SheepManager.Sheeps) {
+            foreach (var sheep in SheepManagerSystem.Sheeps) {
                 sheepMatrices[sheepIdx++] = new LocalToWorld(){Value = sheep.transform.localToWorldMatrix};
             }
 

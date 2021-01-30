@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity.Collections;
+using Unity.Jobs;
+using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>
@@ -9,7 +12,6 @@ public class Sheep : MonoBehaviour {
     public GameConfig Config;
     public Rigidbody2D Rigidbody;
 
-    
     // Is this sheep owned by the player
     private bool tamed;
     public bool Tamed {
@@ -26,11 +28,11 @@ public class Sheep : MonoBehaviour {
     }
 
     private void OnEnable() {
-        SheepManager.RegisterSheep(this);
+        SheepManagerSystem.Sheeps.Add(this);
     }
 
     private void OnDisable() {
-        SheepManager.DeregisterSheep(this);
+        SheepManagerSystem.Sheeps.Remove(this);
     }
     
     #if UNITY_EDITOR
