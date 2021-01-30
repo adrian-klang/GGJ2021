@@ -39,4 +39,12 @@ public class GameConfig : ScriptableObject {
     [Range(0, 1)]
     public float FollowDamp = 0.5f;
     public float Distance = 10;
+
+    [Header("Shop")]
+    public int StartingCoinsCount;
+    public int FenceValue = 10;
+    public int WolfTrapValue = 10;
+
+    [Header("UI")]
+    public float MessageTextTimeout = 3;
 }
