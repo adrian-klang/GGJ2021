@@ -52,10 +52,10 @@ public class Wolf : MonoBehaviour
     private void GoToAvgSheepPosition()
     {
         var avgPosition = Vector3.zero;
-        
+
         foreach (var sheep in AllSheep)
         {
-            if (!sheep.GetComponent<Sheep>().Tamed)
+            if (sheep == null || !sheep.GetComponent<Sheep>().Tamed)
             {
                 continue;
             }

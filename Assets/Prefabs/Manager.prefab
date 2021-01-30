@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sheep: {fileID: 9135522774225537305, guid: 1a5be0ef12427104db9efb6a5d0c3b72, type: 3}
   Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
+  LevelConfig: {fileID: 11400000, guid: 9f335d82f1109d64dbd5b3fea7b1e073, type: 2}
+  DayNightCycle: {fileID: 9140761708967759881}
 --- !u!114 &9140761708967759882
 MonoBehaviour:
   m_ObjectHideFlags: 0
