@@ -9,6 +9,22 @@ public class Sheep : MonoBehaviour {
     public GameConfig Config;
     public Rigidbody2D Rigidbody;
 
+    
+    // Is this sheep owned by the player
+    private bool tamed;
+    public bool Tamed {
+        get { return tamed; }
+        set {
+            if (tamed != value) {
+                tamed = value;
+                OnSetTamed();
+            }
+        }
+    }
+
+    private void OnSetTamed() {
+    }
+
     private void OnEnable() {
         SheepManager.RegisterSheep(this);
     }

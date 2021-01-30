@@ -72,6 +72,8 @@ public class SheepManager : MonoBehaviour {
                 avgPos /= cohesionVectors.Count;
 
                 totalForce += (avgPos - posOne).normalized * Config.CohesionForce;
+
+                sheepOne.Tamed = true;
             }
             
             
@@ -84,6 +86,8 @@ public class SheepManager : MonoBehaviour {
                 avgPos /= separationVectors.Count;
 
                 totalForce += (posOne - avgPos).normalized * Config.SeparationForce;
+                
+                sheepOne.Tamed = true;
             }
 
             if (alignmentVectors.Count > 0) {
@@ -95,6 +99,8 @@ public class SheepManager : MonoBehaviour {
                 avgDir /= alignmentVectors.Count;
 
                 totalForce += avgDir.normalized * Config.AlignmentForce;
+                
+                sheepOne.Tamed = true;
             }
             
             sheepOne.Rigidbody.AddForce(totalForce);

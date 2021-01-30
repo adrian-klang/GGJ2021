@@ -4,14 +4,17 @@
 public class GameConfig : ScriptableObject {
     [Header("Manager")]
     public int AgentsAmount = 10;
-    public float SpawnRadius = 5f;
+    public float SpawnWorldWidth = 5f;
+    public float SpawnWorldLength = 5f;
     
     [Header("Dog")]
     public float DogMoveForce = 10;
     public float DogPushForce = 10;
     public float DogPushRadius = 10;
+    public AnimationCurve DogPushCurve;
     public float DogPullForce = 10;
     public float DogPullRadius = 10;
+    public AnimationCurve DogPullCurve;
     
     [Header("Sheep")]
     public float SeparationForce = 1f;
@@ -25,6 +28,7 @@ public class GameConfig : ScriptableObject {
     public float FollowRadius = 3f;
     public float SearchRadius = 10f;
     public float WolfForce = 5f;
+    public float WolfChangeTargetDiff = 20f;
 
     [Header("Day Night Cycle")]
     public float DayNightCycleSpeed = 10;
