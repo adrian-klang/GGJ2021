@@ -59,7 +59,7 @@ public class Sheep : MonoBehaviour
     {
         Vector2 avgVelocity = Vector2.zero;
 
-        foreach (var sheep in InnerCollisions)
+        foreach (var sheep in MidCollisions)
         {
             // todo: remove getcomponent
             var rigidbody = sheep.GetComponentInParent<Rigidbody2D>();
@@ -77,14 +77,14 @@ public class Sheep : MonoBehaviour
     {
         Vector3 avgPosition = Vector3.zero;
 
-        foreach (var sheep in InnerCollisions)
+        foreach (var sheep in OuterCollisions)
         {
             avgPosition += sheep.transform.position;
         }
 
         avgPosition /= OuterCollisions.Count;
 
-        var forceToApply = (transform.position + avgPosition).normalized * Config.OuterForceMultiplier;
+        var forceToApply = (avgPosition - transform.position).normalized * Config.OuterForceMultiplier;
 
         Rigidbody.AddForce(forceToApply);
     }

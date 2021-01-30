@@ -10,4 +10,14 @@ public class GameConfig : ScriptableObject {
     public float DogPushRadius = 10;
     public float DogPullForce = 10;
     public float DogPullRadius = 10;
+    
+    [Header("Force Multiplier")]
+    public float InnerForceMultiplier = 1f;
+    public float MidForceMultiplier = 1f;
+    public float OuterForceMultiplier = 1f;
+    
+    [Header("Radius Size")]
+    public float InnerRadius = 1f;
+    public float MidRadius = 2f;
+    public float OuterRadius = 3f;
 }
