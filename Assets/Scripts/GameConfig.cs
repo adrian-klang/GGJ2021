@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Game/Config)")]
+[CreateAssetMenu(menuName = "Game/GameConfig")]
 public class GameConfig : ScriptableObject {
     [Header("Manager")]
     public int SheepAmount = 10;
@@ -31,7 +31,9 @@ public class GameConfig : ScriptableObject {
     public float WolfSecondsBeforeGettingUnscared = 3f;
 
     [Header("Day Night Cycle")]
-    public float DayNightCycleSpeed = 10;
+    public float DayNightCycleDurationInSeconds = 10;
+    [Range(0, 1)]
+    public float DayNightThreshold = 0.75f;
 
     [Header("Camera")]
     [Range(0, 1)]

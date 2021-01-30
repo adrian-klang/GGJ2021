@@ -78,6 +78,7 @@ MonoBehaviour:
   WolfMoveForce: 15
   WolfChangeTargetDiff: 10
   WolfSecondsBeforeGettingUnscared: 2
-  DayNightCycleSpeed: 10
+  DayNightCycleDurationInSeconds: 10
+  DayNightThreshold: 0.5
   FollowDamp: 0.713
   Distance: 20
