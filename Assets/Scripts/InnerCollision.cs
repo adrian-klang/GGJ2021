@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Attract to agent
+/// Repel from agent
 /// </summary>
-public class OuterCollision : MonoBehaviour
+public class InnerCollision : MonoBehaviour
 {
     private Sheep sheep;
 
@@ -14,11 +14,11 @@ public class OuterCollision : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        sheep.InnerCollisions.Add(other.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        
+        sheep.InnerCollisions.Remove(other.gameObject);
     }
 }

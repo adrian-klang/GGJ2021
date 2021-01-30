@@ -1,10 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
-/// Follow direction of agent
+/// Attract to agent
 /// </summary>
-public class MidCollision : MonoBehaviour
+public class OuterCollision : MonoBehaviour
 {
     private Sheep sheep;
 
@@ -12,14 +11,14 @@ public class MidCollision : MonoBehaviour
     {
         sheep = GetComponentInParent<Sheep>();
     } 
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        sheep.OuterCollisions.Add(other.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        
+        sheep.OuterCollisions.Remove(other.gameObject);
     }
 }
