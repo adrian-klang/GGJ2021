@@ -28,6 +28,7 @@ public class GameConfig : ScriptableObject {
     public float FollowRadius = 3f;
     public float SearchRadius = 10f;
     public float WolfForce = 5f;
+    public float WolfChangeTargetDiff = 20f;
 
     [Header("Day Night Cycle")]
     public float DayNightCycleSpeed = 10;
