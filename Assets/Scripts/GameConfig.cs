@@ -25,4 +25,9 @@ public class GameConfig : ScriptableObject {
 
     [Header("Day Night Cycle")]
     public float DayNightCycleSpeed = 10;
+
+    [Header("Camera")]
+    [Range(0, 1)]
+    public float FollowDamp = 0.5f;
+    public float Distance = 10;
 }
