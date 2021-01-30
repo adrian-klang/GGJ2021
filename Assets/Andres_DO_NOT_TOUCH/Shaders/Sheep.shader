@@ -43,7 +43,7 @@
                 // Sheep animation
                 float x = Hash(input.instanceID) + _Time.z;
                 float jump = sin((x * 2.0 - 0.5) * PI) * 0.5 + 0.5;
-                positionWS.y += jump;
+                positionWS.z += jump;
 
                 output.positionCS = TransformWorldToHClip(positionWS);
 
