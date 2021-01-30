@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 9135522774225537306}
   - component: {fileID: 9135522774225537307}
   - component: {fileID: 9135522774225537304}
+  - component: {fileID: 3571973361327455515}
   - component: {fileID: 2078617701}
   m_Layer: 0
   m_Name: Sheep
@@ -217,14 +218,30 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &3571973361327455515
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9135522774225537305}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &2078617701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,16 +254,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfacc31cf5d026446a919e39fcd404ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
   Rigidbody: {fileID: 9135522774225537304}
   inner: {fileID: 9135522774739348559}
   mid: {fileID: 9135522774111644025}
   outer: {fileID: 9135522773735679984}
-  InnerForceMultiplier: 1
-  MidForceMultiplier: 1
-  OuterForceMultiplier: 1
-  InnerRadius: 1
-  MidRadius: 2
-  OuterRadius: 3
   InnerCollisions: []
   MidCollisions: []
   OuterCollisions: []
