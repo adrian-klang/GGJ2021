@@ -7,6 +7,17 @@ using UnityEngine;
 public class Sheep : MonoBehaviour
 {
     public Rigidbody2D Rigidbody;
+    public CircleCollider2D inner, mid, outer;
+    
+    [Header("Force Multiplier")]
+    public float InnerForceMultiplier;
+    public float MidForceMultiplier;
+    public float OuterForceMultiplier;
+    
+    [Header("Radius Size")]
+    public float InnerRadius = 1f;
+    public float MidRadius = 2f;
+    public float OuterRadius = 3f;
     
     [HideInInspector]
     public List<GameObject> InnerCollisions = new List<GameObject>();
@@ -14,19 +25,16 @@ public class Sheep : MonoBehaviour
     public List<GameObject> MidCollisions = new List<GameObject>();
     [HideInInspector]
     public List<GameObject> OuterCollisions = new List<GameObject>();
-    
+
     private void FixedUpdate()
     {
         AddForceInner();
         AddForceMid();
         AddForceOuter();
 
-        // mid -> add force that is avg of all velocities of mid circle
-        // inner -> avg all positions -> opposite
-        // outer -> avg all positions
-
-        // multiplier for force
-        // modify radius of collider at runtime
+        inner.radius = InnerRadius;
+        mid.radius = MidRadius;
+        outer.radius = OuterRadius;
     }
 
     private void AddForceInner()
@@ -40,7 +48,9 @@ public class Sheep : MonoBehaviour
 
         avgPosition /= InnerCollisions.Count;
 
-        Rigidbody.AddForce(-avgPosition);
+        var forceToApply = (transform.position - avgPosition).normalized * InnerForceMultiplier;
+        
+        Rigidbody.AddForce(forceToApply);
     }
     
     private void AddForceMid()
@@ -56,7 +66,9 @@ public class Sheep : MonoBehaviour
 
         avgVelocity /= MidCollisions.Count;
 
-        Rigidbody.AddForce(avgVelocity);
+        var forceToApply = avgVelocity * MidForceMultiplier;
+        
+        Rigidbody.AddForce(forceToApply);
     }
     
     private void AddForceOuter()
@@ -70,6 +82,8 @@ public class Sheep : MonoBehaviour
 
         avgPosition /= OuterCollisions.Count;
 
-        Rigidbody.AddForce(avgPosition);
+        var forceToApply = (transform.position + avgPosition).normalized * OuterForceMultiplier;
+
+        Rigidbody.AddForce(forceToApply);
     }
 }
