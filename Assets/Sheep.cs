@@ -5,8 +5,9 @@ using UnityEngine;
 /// <summary>
 /// manager per-agent
 /// </summary>
-public class Sheep : MonoBehaviour
-{
+public class Sheep : MonoBehaviour {
+    public Rigidbody2D Rigidbody;
+    
     private List<GameObject> innerCollisions = new List<GameObject>();
     private List<GameObject> midCollisions = new List<GameObject>();
     private List<GameObject> outerCollisions = new List<GameObject>();
