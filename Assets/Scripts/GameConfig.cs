@@ -4,7 +4,8 @@
 public class GameConfig : ScriptableObject {
     [Header("Manager")]
     public int AgentsAmount = 10;
-    public float SpawnRadius = 5f;
+    public float SpawnWorldWidth = 5f;
+    public float SpawnWorldLength = 5f;
     
     [Header("Dog")]
     public float DogMoveForce = 10;
