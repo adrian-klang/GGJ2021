@@ -14,11 +14,17 @@ public class MidCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        sheep.MidCollisions.Add(other.gameObject);
+        if (other.CompareTag("Sheep"))
+        {
+            sheep.MidCollisions.Add(other.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        sheep.MidCollisions.Remove(other.gameObject);
+        if (other.CompareTag("Sheep"))
+        {
+            sheep.MidCollisions.Remove(other.gameObject);
+        }
     }
 }

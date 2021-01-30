@@ -14,11 +14,17 @@ public class InnerCollision : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        sheep.InnerCollisions.Add(other.gameObject);
+        if (other.CompareTag("Sheep"))
+        {
+            sheep.InnerCollisions.Add(other.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        sheep.InnerCollisions.Remove(other.gameObject);
+        if (other.CompareTag("Sheep"))
+        {
+            sheep.InnerCollisions.Remove(other.gameObject);
+        }
     }
 }
