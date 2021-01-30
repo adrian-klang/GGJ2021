@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Wolf : MonoBehaviour
@@ -6,7 +7,7 @@ public class Wolf : MonoBehaviour
     public GameConfig Config;
     
     [HideInInspector]
-    public List<GameObject> SearchRadiusSheep = new List<GameObject>();
+    public List<GameObject> AllSheep = new List<GameObject>();
     [HideInInspector]
     public List<GameObject> AttackRadiusSheep = new List<GameObject>();
     [HideInInspector]
@@ -19,6 +20,7 @@ public class Wolf : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        AllSheep = GameObject.FindGameObjectsWithTag("Sheep").ToList();
     }
     
     private void FixedUpdate()
@@ -33,14 +35,9 @@ public class Wolf : MonoBehaviour
             {
                 GoToSeenSheepPosition();
             }
-            else if (SearchRadiusSheep.Count > 0)
+            else if (AllSheep.Count > 0)
             {
                 GoToAvgSheepPosition();
-            }
-            else
-            {
-                // wolf might have gone too far and not have any collisions with sheep - where does it go?
-                // might have scared it away forever?
             }
         }
     }
@@ -56,12 +53,17 @@ public class Wolf : MonoBehaviour
     {
         var avgPosition = Vector3.zero;
         
-        foreach (var sheep in SearchRadiusSheep)
+        foreach (var sheep in AllSheep)
         {
+            if (!sheep.GetComponent<Sheep>().Tamed)
+            {
+                continue;
+            }
+            
             avgPosition += sheep.transform.position;
         }
 
-        avgPosition /= SearchRadiusSheep.Count;
+        avgPosition /= AllSheep.Count;
         
         var forceToAdd = (avgPosition - transform.position).normalized * Config.WolfMoveForce;
         
@@ -95,7 +97,11 @@ public class Wolf : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Sheep"))
         {
-            Destroy(other.gameObject);
+            if (other.gameObject.GetComponent<Sheep>().Tamed)
+            {
+                AllSheep.Remove(other.gameObject);
+                Destroy(other.gameObject);
+            }
         }
     }
 }

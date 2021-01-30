@@ -3,7 +3,7 @@
 [CreateAssetMenu(menuName = "Game/Config)")]
 public class GameConfig : ScriptableObject {
     [Header("Manager")]
-    public int AgentsAmount = 10;
+    public int SheepAmount = 10;
     public float SpawnWorldWidth = 5f;
     public float SpawnWorldLength = 5f;
     
@@ -26,9 +26,8 @@ public class GameConfig : ScriptableObject {
 
     [Header("Wolf")]
     public float WolfAttackRadius = 3f;
-    public float WolfSearchRadius = 10f;
     public float WolfMoveForce = 5f;
-    public float WolfChangeTargetDiff = 20f;
+    public float WolfChangeTargetDiff = 10f;
     public float WolfSecondsBeforeGettingUnscared = 3f;
 
     [Header("Day Night Cycle")]

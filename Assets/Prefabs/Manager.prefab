@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae87b5e4cd5d1d4b99a125bfae94ef1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheep: {fileID: 9135522774225537305, guid: 1a5be0ef12427104db9efb6a5d0c3b72, type: 3}
+  Sheep: {fileID: 9135522774225537305, guid: 1a5be0ef12427104db9efb6a5d0c3b72, type: 3}
+  Wolf: {fileID: 228106273724225238, guid: 0dd42c5f6ceb2df42aff7b414364d715, type: 3}
   Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
 --- !u!114 &9140761708967759882
 MonoBehaviour:
