@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a276796d6bbd30458e7fbbaec30ab90, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  AgentsAmount: 200
-  SpawnRadius: 30
-  DogMoveForce: 10
+  SheepAmount: 50
+  SpawnWorldWidth: 5
+  SpawnWorldLength: 5
+  DogMoveForce: 15
   DogPushForce: 10
   DogPushRadius: 10
   DogPushCurve:
@@ -73,9 +74,10 @@ MonoBehaviour:
   SeparationRadius: 1
   AlignmentRadius: 2
   CohesionRadius: 3
-  FollowRadius: 3
-  SearchRadius: 10
-  WolfForce: 5
+  WolfAttackRadius: 3
+  WolfMoveForce: 15
+  WolfChangeTargetDiff: 10
+  WolfSecondsBeforeGettingUnscared: 2
   DayNightCycleSpeed: 10
   FollowDamp: 0.713
   Distance: 20

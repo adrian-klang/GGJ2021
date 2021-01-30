@@ -123,6 +123,90 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &287230462
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487585197343009391, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677427536029780129, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_Name
+      value: Dog
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445432525387724007, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204685949176955673, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9506067eadc94ae4d9c53836ba1e6469, type: 3}
 --- !u!1 &804893069
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,28 +382,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &936962552 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 228106273724225238, guid: 0dd42c5f6ceb2df42aff7b414364d715,
-    type: 3}
-  m_PrefabInstance: {fileID: 1617310909}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &936962558
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936962552}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.000000059604645, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.0000002
 --- !u!1001 &1617310909
 PrefabInstance:
   m_ObjectHideFlags: 0

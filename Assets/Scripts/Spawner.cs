@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         
-        for (int i = 0; i < Config.AgentsAmount; i++)
+        for (int i = 0; i < Config.SheepAmount; i++)
         {
             var position = new Vector2(Random.Range(-Config.SpawnWorldWidth * 0.5f, Config.SpawnWorldWidth * 0.5f), Random.Range(-Config.SpawnWorldLength * 0.5f, Config.SpawnWorldLength * 0.5f));
             var prefab = Instantiate(sheep, position, Quaternion.identity);
