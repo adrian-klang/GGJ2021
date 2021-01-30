@@ -6,6 +6,8 @@ using UnityEngine;
 /// </summary>
 public class Sheep : MonoBehaviour
 {
+    public Rigidbody2D Rigidbody;
+    
     [HideInInspector]
     public List<GameObject> InnerCollisions = new List<GameObject>();
     [HideInInspector]
