@@ -12,12 +12,12 @@ public class GameConfig : ScriptableObject {
     public float DogPullRadius = 10;
     
     [Header("Sheep Forces")]
-    public float InnerForceMultiplier = 1f;
-    public float MidForceMultiplier = 1f;
-    public float OuterForceMultiplier = 1f;
+    public float SeparationForce = 1f;
+    public float AlignmentForce = 1f;
+    public float CohesionForce = 1f;
     
     [Header("Sheep Radii")]
-    public float InnerRadius = 1f;
-    public float MidRadius = 2f;
-    public float OuterRadius = 3f;
+    public float SeparationRadius = 1f;
+    public float AlignmentRadius = 2f;
+    public float CohesionRadius = 3f;
 }
