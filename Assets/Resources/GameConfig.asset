@@ -68,7 +68,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  SeparationForce: 10
+  SeparationForce: 3
   AlignmentForce: 1.5
   CohesionForce: 1
   SeparationRadius: 1

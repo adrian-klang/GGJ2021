@@ -38,6 +38,11 @@ public class SheepManagerSystem : ComponentSystem {
         };
 
         sheepFlockingJobs.Schedule(Sheeps.Count, 64).Complete();
+        for (var i = 0; i < Sheeps.Count; i++) {
+            Sheeps[i].Rigidbody.AddForce(results[i].xy);
+            // TODO: FIX;
+            Sheeps[i].Tamed = results[i].z == 1.0f;
+        }
 
         inputTranslations.Dispose();
         inputVelocities.Dispose();
