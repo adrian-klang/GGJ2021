@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DogPushRadius : MonoBehaviour {
-    public float Force = 10;
-    
     private List<Sheep> sheeps = new List<Sheep>();
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -22,10 +20,10 @@ public class DogPushRadius : MonoBehaviour {
         }
     }
 
-    public void Apply() {
+    public void Apply(float force) {
         foreach (var sheep in sheeps) {
             var f = sheep.transform.position - transform.position;
-            f *= Force;
+            f *= force;
             sheep.Rigidbody.AddForce(f);
         }
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Dog : MonoBehaviour {
     public float MoveForce = 10;
+    public float PushForce = 10;
+    public float PullForce = 10;
     
     [Space]
     public Rigidbody2D Rigidbody;
@@ -40,19 +42,23 @@ public class Dog : MonoBehaviour {
         
         // Pull
         if (Input.GetMouseButtonDown(0)) {
+            Debug.Log("DOG PULL - ON");
             pull = true;
         }
         
         if (Input.GetMouseButtonUp(0)) {
+            Debug.Log("DOG PULL - OFF");
             pull = false;
         }
         
         // Push
         if (Input.GetMouseButtonDown(1)) {
+            Debug.Log("DOG PUSH - ON");
             push = true;
         }
 
         if (Input.GetMouseButtonUp(1)) {
+            Debug.Log("DOG PUSH - OFF");
             push = false;
         }
     }
@@ -63,11 +69,11 @@ public class Dog : MonoBehaviour {
         }
 
         if (push) {
-            PushRadius.Apply();
+            PushRadius.Apply(PushForce);
         }
 
         if (pull) {
-            PullRadius.Apply();
+            PullRadius.Apply(PullForce);
         }
     }
 }
