@@ -15,5 +15,11 @@ MonoBehaviour:
   DogMoveForce: 10
   DogPushForce: 10
   DogPushRadius: 10
-  DogPullForce: 10
+  DogPullForce: 4
   DogPullRadius: 10
+  InnerForceMultiplier: 1
+  MidForceMultiplier: 1.5
+  OuterForceMultiplier: 1
+  InnerRadius: 1
+  MidRadius: 2
+  OuterRadius: 3
