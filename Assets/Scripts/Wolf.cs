@@ -60,6 +60,10 @@ public class Wolf : MonoBehaviour {
         float closestDistSqrd = Mathf.Infinity;
 
         foreach (var sheep in AttackRadiusSheep) {
+            if (sheep == null || !sheep.GetComponent<Sheep>().Tamed) {
+                continue;
+            }
+            
             var sheepPos = sheep.transform.position;
             var sqrdDist = wolfPos.x * sheepPos.x + wolfPos.y * sheepPos.y + wolfPos.z * sheepPos.z;
 
