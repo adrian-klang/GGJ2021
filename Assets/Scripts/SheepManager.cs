@@ -20,9 +20,11 @@ public class SheepManagerSystem : ComponentSystem {
         var sheepQuery = GetEntityQuery(typeof(SheepRenderer), typeof(Translation));
         NativeArray<SheepRenderer> sheepRenderers = new NativeArray<SheepRenderer>();
         NativeArray<LocalToWorld> sheepMatrices = new NativeArray<LocalToWorld>();
+        NativeArray<float> sheepVelocities = new NativeArray<float>();
         if (SheepScriptableRendererFeature.instance != null) {
             sheepRenderers = sheepQuery.ToComponentDataArray<SheepRenderer>(Allocator.TempJob);
             sheepMatrices = new NativeArray<LocalToWorld>(SheepScriptableRendererFeature.MAX_SHEEP, Allocator.Temp);
+            sheepVelocities = new NativeArray<float>(SheepScriptableRendererFeature.MAX_SHEEP, Allocator.Temp);
         }
 
         var inputTranslations = new NativeArray<Translation>(Sheeps.Count, Allocator.TempJob);
@@ -58,13 +60,15 @@ public class SheepManagerSystem : ComponentSystem {
 
             if (SheepScriptableRendererFeature.instance != null) {
                 sheepMatrices[i] = new LocalToWorld() {Value = Sheeps[i].transform.localToWorldMatrix};
+                sheepVelocities[i] = Sheeps[i].Rigidbody.velocity.sqrMagnitude;
             }
         }
 
         if (SheepScriptableRendererFeature.instance != null) {
-            SheepScriptableRendererFeature.instance.SubmitRenderers(sheepRenderers, sheepMatrices);
+            SheepScriptableRendererFeature.instance.SubmitRenderers(sheepMatrices, sheepVelocities);
             sheepRenderers.Dispose();
             sheepMatrices.Dispose();
+            sheepVelocities.Dispose();
         }
 
         inputTranslations.Dispose();
