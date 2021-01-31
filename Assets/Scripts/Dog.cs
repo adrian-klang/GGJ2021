@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Dog : MonoBehaviour {
     public GameConfig Config;
@@ -8,6 +10,8 @@ public class Dog : MonoBehaviour {
     public Rigidbody Rigidbody;
     public DogPushRadius PushRadius;
     public DogPullRadius PullRadius;
+
+    public Animator Animator;
 
     private AudioSource audioSource;
 
@@ -34,16 +38,27 @@ public class Dog : MonoBehaviour {
         }
     }
 
+    private void Update() {
+        if (GameInput.GetDogMoveDir() != Vector3.zero) {
+            Animator.SetBool("Walk", true);
+            transform.forward = Rigidbody.velocity.normalized;
+        } else {
+            Animator.SetBool("Walk", false);
+        }
+    }
+
     private void FixedUpdate() {
         if (GameInput.GetDogMoveDir() != Vector3.zero) {
             Rigidbody.AddForce(GameInput.GetDogMoveDir() * Config.DogMoveForce);
         }
 
         if (GameInput.GetDogPush()) {
+            Animator.SetTrigger("Bark");
             PushRadius.Apply(Config.DogPushForce);
         }
 
         if (GameInput.GetDogPull()) {
+            Animator.SetTrigger("Bark");
             PullRadius.Apply(Config.DogPullForce);
         }
     }
