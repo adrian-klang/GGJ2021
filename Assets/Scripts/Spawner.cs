@@ -49,18 +49,17 @@ public class Spawner : MonoBehaviour
 
     private void SpawnSheep()
     {
-        // TODO: uncomment in final level when removing random spawn of sheep
-        // var allSheep = SheepManager.Sheeps;
-        // for (int i = 0; i < allSheep.Length; i++)
-        // {
-        //     var sheep = allSheep[i].gameObject;
-        //     
-        //     CreateInstance(entityArchetype, i, sheep.transform.position, sheep);
-        // }
+        var allSheep = SheepManagerSystem.Sheeps;
+        for (int i = 0; i < allSheep.Count; i++)
+        {
+            var sheep = allSheep[i].gameObject;
+            
+            CreateInstance(entityArchetype, i, sheep.transform.position, sheep);
+        }
         
         for (int i = 0; i < Config.SheepAmount; i++)
         {
-            var position = new Vector3(Random.Range(-Config.SpawnWorldWidth * 0.5f, Config.SpawnWorldWidth * 0.5f), 0, Random.Range(-Config.SpawnWorldLength * 0.5f, Config.SpawnWorldLength * 0.5f));
+            var position = new Vector3(Random.Range(0, Config.SpawnWorldWidth), 0, Random.Range(0, Config.SpawnWorldLength));
             var prefab = Instantiate(Sheep, position, Quaternion.identity);
             
             prefab.GetComponent<Sheep>().sheepEntity = CreateInstance(entityArchetype, i, position, prefab);

@@ -810,10 +810,11 @@ MonoBehaviour:
   WolfTrapValueText: {fileID: 1237354735}
   SheepCountText: {fileID: 2160799252340740195}
   DayCountText: {fileID: 7817796955568642850}
-  Wallet: {fileID: 0}
+  Wallet: {fileID: -6995926517829892311, guid: dab49b9d7b166f047a3fdc09e6f38a92, type: 3}
   Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
   MessageText: {fileID: 7615068913950893597}
-  GameInput: {fileID: 0}
+  GameInput: {fileID: -2278016308262563120, guid: dab49b9d7b166f047a3fdc09e6f38a92,
+    type: 3}
   Cam: {fileID: 0}
 --- !u!1 &5390205099216375423
 GameObject:

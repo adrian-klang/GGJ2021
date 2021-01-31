@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,7 +51,7 @@ public class UI : MonoBehaviour {
         CoinsCountText.text = Wallet.GetTotalCoins().ToString();
         FenceValueText.text = Config.FenceValue.ToString();
         WolfTrapValueText.text = Config.WolfTrapValue.ToString();
-        SheepCountText.text = SheepManagerSystem.Sheeps.Count.ToString();
+        SheepCountText.text = SheepManagerSystem.Sheeps.FindAll(sheep => sheep.Tamed).Count.ToString();
         DayCountText.text = DayNightCycle.DayCounter.ToString();
 
         if (currentPlacementInstance != null) {
