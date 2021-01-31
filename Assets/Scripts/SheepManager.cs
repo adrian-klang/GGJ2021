@@ -23,17 +23,25 @@ public class SheepManagerSystem : ComponentSystem {
         for (var i = 0; i < Sheeps.Count; i++) {
             inputVelocities[i] = Sheeps[i].Rigidbody.velocity.normalized;
         }
-        
+
+        NativeArray<SheepRenderer> sheepRenderers = new NativeArray<SheepRenderer>();
+        NativeArray<LocalToWorld> sheepMatrices = new NativeArray<LocalToWorld>();
+        if (SheepScriptableRendererFeature.instance != null) {
+            sheepRenderers = sheepQuery.ToComponentDataArray<SheepRenderer>(Allocator.TempJob);
+            sheepMatrices = new NativeArray<LocalToWorld>(SheepScriptableRendererFeature.MAX_SHEEP, Allocator.Temp);
+        }
+
         var results = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
         var sheepFlockingJobs = new SheepFlockingJob {
                 InputTranslations = inputTranslations,
                 InputVelocities = inputVelocities,
                 AlignmentForce = Config.AlignmentForce,
-                alignmentSqrRadius = Config.AlignmentRadius * Config.AlignmentRadius,
+                AlignmentSqrRadius = Config.AlignmentRadius * Config.AlignmentRadius,
                 CohesionForce = Config.CohesionForce,
-                cohesionSqrRadius = Config.CohesionRadius * Config.CohesionRadius,
+                CohesionSqrRadius = Config.CohesionRadius * Config.CohesionRadius,
                 SeparationForce = Config.SeparationForce,
-                separationSqrRadius = Config.SeparationRadius * Config.SeparationRadius,
+                SeparationSqrRadius = Config.SeparationRadius * Config.SeparationRadius,
+                MaxDistance = Mathf.Max(Config.AlignmentRadius, Config.CohesionRadius, Config.SeparationRadius),
                 OutputResults = results
         };
 
@@ -42,6 +50,16 @@ public class SheepManagerSystem : ComponentSystem {
             Sheeps[i].Rigidbody.AddForce(results[i].xy);
             // TODO: FIX;
             Sheeps[i].Tamed = results[i].z == 1.0f;
+
+            if (SheepScriptableRendererFeature.instance != null) {
+                sheepMatrices[i] = new LocalToWorld(){Value = Sheeps[i].transform.localToWorldMatrix};
+            }
+        }
+        
+        if (SheepScriptableRendererFeature.instance != null) {
+            SheepScriptableRendererFeature.instance.SubmitRenderers(sheepRenderers, sheepMatrices);
+            sheepRenderers.Dispose();
+            sheepMatrices.Dispose();
         }
 
         inputTranslations.Dispose();
@@ -56,11 +74,13 @@ public class SheepManagerSystem : ComponentSystem {
         [ReadOnly]
         public NativeArray<float2> InputVelocities;
         [ReadOnly]
-        public float alignmentSqrRadius;
+        public float AlignmentSqrRadius;
         [ReadOnly]
-        public float separationSqrRadius;
+        public float SeparationSqrRadius;
         [ReadOnly]
-        public float cohesionSqrRadius;
+        public float CohesionSqrRadius;
+        [ReadOnly]
+        public float MaxDistance;
         [ReadOnly]
         public float AlignmentForce;
         [ReadOnly]
@@ -86,23 +106,22 @@ public class SheepManagerSystem : ComponentSystem {
                     continue;
                 }
 
-                var posTwo = InputTranslations[j].Value;
-                var velocityTwo = InputVelocities[j];
+                var posTwo = InputTranslations[j].Value.xy;
+                if (math.length(posOne - posTwo) > MaxDistance) {
+                    continue;
+                }
 
-                var sqrDist = (posOne.x - posTwo.x) * (posOne.x - posTwo.x) + (posOne.y - posTwo.y) * (posOne.y - posTwo.y);
-
-                if (sqrDist < separationSqrRadius) {
-                    separationVector += posTwo.xy;
+                var sqrDist = math.distancesq(posOne, posTwo);
+                if (sqrDist < SeparationSqrRadius) {
+                    separationVector += posTwo;
                     separationCount++;
                 }
-
-                if (sqrDist < alignmentSqrRadius) {
-                    alignmentVector += velocityTwo;
+                if (sqrDist < AlignmentSqrRadius) {
+                    alignmentVector += InputVelocities[j];
                     alignmentCount++;
                 }
-
-                if (sqrDist < cohesionSqrRadius) {
-                    cohesionVector += posTwo.xy;
+                if (sqrDist < CohesionSqrRadius) {
+                    cohesionVector += posTwo;
                     cohesionCount++;
                 }
             }
@@ -131,7 +150,7 @@ public class SheepManagerSystem : ComponentSystem {
                 tamed = true;
             }
 
-            OutputResults[i] = new float3(totalForce.x, totalForce.y, tamed ? 1.0f : 0.0f);
+            OutputResults[i] = new float3(totalForce.xy, tamed ? 1.0f : 0.0f);
         }
     }
 }
