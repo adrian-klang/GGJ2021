@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a276796d6bbd30458e7fbbaec30ab90, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  SheepAmount: 1
-  SpawnWorldWidth: 1
-  SpawnWorldLength: 1
+  SheepAmount: 750
+  SpawnWorldWidth: 256
+  SpawnWorldLength: 256
   DogMoveForce: 300
   DogPushForce: 20
   DogPushRadius: 12
@@ -71,12 +71,12 @@ MonoBehaviour:
   SeparationForce: 8
   AlignmentForce: 2
   CohesionForce: 2
-  SeparationRadius: 1
+  SeparationRadius: 1.5
   AlignmentRadius: 4
   CohesionRadius: 6
   SheepRotationLerp: 0.5
   WolfAttackRadius: 5
-  WolfMoveForce: 35
+  WolfMoveForce: 50
   WolfChangeTargetDiff: 10
   WolfSecondsBeforeGettingUnscared: 5
   DayNightCycleDurationInSeconds: 90

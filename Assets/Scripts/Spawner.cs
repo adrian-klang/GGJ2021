@@ -1,4 +1,5 @@
-﻿using Unity.Entities;
+﻿using System;
+using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
@@ -26,6 +27,12 @@ public class Spawner : MonoBehaviour
         entityArchetype = entityManager.CreateArchetype(typeof(Translation), typeof(Rotation), typeof(LocalToWorld), typeof(SheepRenderer));
 
         SpawnSheep();
+    }
+
+    private void OnDrawGizmos() {
+        foreach (var wolfSpawner in LevelConfig.WolfSpawners) {
+            Gizmos.DrawSphere(wolfSpawner, 20);
+        }
     }
 
     void Update()
@@ -59,7 +66,7 @@ public class Spawner : MonoBehaviour
         
         for (int i = 0; i < Config.SheepAmount; i++)
         {
-            var position = new Vector3(Random.Range(0, Config.SpawnWorldWidth), 0, Random.Range(0, Config.SpawnWorldLength));
+            var position = new Vector3(Random.Range(0, Config.SpawnWorldWidth), 0.5f, Random.Range(0, Config.SpawnWorldLength));
             var prefab = Instantiate(Sheep, position, Quaternion.identity);
             
             prefab.GetComponent<Sheep>().sheepEntity = CreateInstance(entityArchetype, i, position, prefab);
@@ -75,7 +82,7 @@ public class Spawner : MonoBehaviour
         
         for (int i = 0; i < LevelConfig.WolvesPerDay[dayCounter]; i++)
         {
-            var spawnPos = LevelConfig.WolfSpawners[Random.Range(0, LevelConfig.WolfSpawners.Count - 1)];
+            var spawnPos = LevelConfig.WolfSpawners[Random.Range(0, LevelConfig.WolfSpawners.Count - 1)] + new Vector3(128, 0, 128);
 
             var wolfGO = Instantiate(Wolf, spawnPos, Wolf.transform.rotation);
             wolfGO.GetComponent<Wolf>().PlayGrowlAudio();
