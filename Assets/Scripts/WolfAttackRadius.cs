@@ -36,7 +36,7 @@ public class WolfAttackRadius : MonoBehaviour
             wolf.DogScarePosition = other.gameObject.transform.position;
 
             var dog = other.gameObject.GetComponent<Dog>();
-            dog.PlayScaryAudio();
+            dog.PlayScaryAudio(Config.DogWoofScaryOnScareWolfChance);
         }
     }
     

@@ -20,10 +20,10 @@ public class Dog : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void PlayScaryAudio()
+    public void PlayScaryAudio(float chance)
     {
         var randomChance = Random.Range(0f, 1f);
-        if (randomChance < Config.DogWoofScaryOnPushChance)
+        if (randomChance < chance)
         {
             if (audioSource.clip != Config.DogWoofScary) {
                 audioSource.Stop();
