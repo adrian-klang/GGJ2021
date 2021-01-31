@@ -37,6 +37,10 @@
                 float3 normalWS : TEXCOORD1;
             };
 
+            UNITY_INSTANCING_BUFFER_START(UnityPerMaterial)
+            UNITY_DEFINE_INSTANCED_PROP(float4, _TreeInstanceColor)
+            UNITY_INSTANCING_BUFFER_END(UnityPerMaterial)
+
             sampler2D _MainTex;
             sampler2D _CutoffTex;
             float _Shading;
@@ -56,6 +60,14 @@
             {
                 half4 albedo = tex2D(_MainTex, input.uv);
                 half alpha = tex2D(_CutoffTex, input.uv);
+
+                float treeColorVariation = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _TreeInstanceColor);
+                if (treeColorVariation > 0.0f)
+                {
+                    half3 hsv = RgbToHsv(albedo);
+                    hsv.b = treeColorVariation / 4.0f;
+                    albedo.rgb = HsvToRgb(hsv);
+                }
 
                 // Compute ambient lighting.
                 half3 irradiance = albedo.rgb * SampleSH(input.normalWS);
