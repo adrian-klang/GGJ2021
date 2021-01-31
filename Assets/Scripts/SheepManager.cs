@@ -20,7 +20,7 @@ public class SheepManagerSystem : ComponentSystem {
         var inputTranslations = new NativeArray<Translation>(Sheeps.Count, Allocator.TempJob);
         var inputVelocities = new NativeArray<float2>(Sheeps.Count, Allocator.TempJob);
         for (var i = 0; i < Sheeps.Count; i++) {
-            inputVelocities[i] = Sheeps[i].Rigidbody.velocity.normalized;
+            inputVelocities[i] = Sheeps[i].Rigidbody.velocity;
             inputTranslations[i] = new Translation {Value = Sheeps[i].transform.position};
         }
 
@@ -145,12 +145,16 @@ public class SheepManagerSystem : ComponentSystem {
             if (alignmentCount > 0) {
                 if (alignmentVector.x != 0.0f && alignmentVector.y != 0.0f) {
                     alignmentVector /= alignmentCount;
-                    totalForce += math.normalize(alignmentVector) * AlignmentForce;
+                    totalForce += alignmentVector * AlignmentForce;
                 }
 
                 tamed = true;
             }
 
+            if (totalForce.x != 0.0f || totalForce.y != 0.0f) {
+                totalForce.xy = math.normalize(totalForce.xy);
+            }
+            
             OutputResults[i] = new float3(totalForce.xy, tamed ? 1.0f : 0.0f);
         }
     }
