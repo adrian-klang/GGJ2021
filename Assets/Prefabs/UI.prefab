@@ -344,7 +344,7 @@ RectTransform:
   m_GameObject: {fileID: 814702368342221812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.55828, y: 0.55828, z: 0.55828}
   m_Children:
   - {fileID: 7409284562371392961}
   - {fileID: 1937692450}
@@ -354,7 +354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -338.40002, y: 167.6}
+  m_AnchoredPosition: {x: -187, y: 91}
   m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &276413327219572089
@@ -437,7 +437,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8505515284608154218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 354316992180817213}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: OnBuyFence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3807001880728547834
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +650,7 @@ MonoBehaviour:
   Wallet: {fileID: 0}
   Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
   MessageText: {fileID: 7615068913950893597}
+  GameInput: {fileID: 0}
 --- !u!1 &5390205099216375423
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +679,7 @@ RectTransform:
   m_GameObject: {fileID: 5390205099216375423}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.55828, y: 0.55828, z: 0.55828}
   m_Children:
   - {fileID: 5390205100050376219}
   - {fileID: 1237354734}
@@ -676,7 +689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -338.4, y: 66.5}
+  m_AnchoredPosition: {x: -187.00003, y: 34.549988}
   m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5390205099216375395
@@ -759,7 +772,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5390205099216375394}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 354316992180817213}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: OnBuyTrap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5390205100050376218
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +891,7 @@ RectTransform:
   m_GameObject: {fileID: 7231996171735546289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.55828, y: 0.55828, z: 0.55828}
   m_Children:
   - {fileID: 3164371257104178122}
   m_Father: {fileID: 5390205098516899434}
@@ -874,7 +899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -316.90002, y: 256}
+  m_AnchoredPosition: {x: -175.00006, y: 140.34999}
   m_SizeDelta: {x: 250, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3865095733429843619

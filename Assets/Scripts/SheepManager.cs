@@ -16,14 +16,7 @@ public class SheepManagerSystem : ComponentSystem {
             Config = Resources.Load<GameConfig>("GameConfig");
             NativeLeakDetection.Mode = NativeLeakDetectionMode.EnabledWithStackTrace;
         }
-
-        var inputTranslations = new NativeArray<Translation>(Sheeps.Count, Allocator.TempJob);
-        var inputVelocities = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
-        for (var i = 0; i < Sheeps.Count; i++) {
-            inputVelocities[i] = Sheeps[i].Rigidbody.velocity;
-            inputTranslations[i] = new Translation {Value = Sheeps[i].transform.position};
-        }
-
+        
         var sheepQuery = GetEntityQuery(typeof(SheepRenderer), typeof(Translation));
         NativeArray<SheepRenderer> sheepRenderers = new NativeArray<SheepRenderer>();
         NativeArray<LocalToWorld> sheepMatrices = new NativeArray<LocalToWorld>();
@@ -32,8 +25,18 @@ public class SheepManagerSystem : ComponentSystem {
             sheepMatrices = new NativeArray<LocalToWorld>(SheepScriptableRendererFeature.MAX_SHEEP, Allocator.Temp);
         }
 
+        var inputTranslations = new NativeArray<Translation>(Sheeps.Count, Allocator.TempJob);
+        var inputVelocities = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
+        var isAlive = new NativeArray<int>(Sheeps.Count, Allocator.TempJob);
+        for (var i = 0; i < Sheeps.Count; i++) {
+            inputVelocities[i] = Sheeps[i].Rigidbody.velocity;
+            isAlive[i] = Sheeps[i].gameObject.activeSelf ? 1 : 0;
+            inputTranslations[i] = new Translation {Value = Sheeps[i].transform.position};
+        }
+
         var results = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
         var sheepFlockingJobs = new SheepFlockingJob {
+                IsAlive = isAlive,
                 InputTranslations = inputTranslations,
                 InputVelocities = inputVelocities,
                 AlignmentForce = Config.AlignmentForce,
@@ -48,15 +51,17 @@ public class SheepManagerSystem : ComponentSystem {
 
         sheepFlockingJobs.Schedule(Sheeps.Count, 64).Complete();
         for (var i = 0; i < Sheeps.Count; i++) {
+            var fwd = Sheeps[i].transform.forward;
+            Sheeps[i].transform.forward = Vector3.Slerp(fwd, Vector3.Normalize(Sheeps[i].Rigidbody.velocity), Config.SheepRotationLerp * Time.DeltaTime);
             Sheeps[i].Rigidbody.AddForce(new float3(results[i].x, 0, results[i].y));
             // TODO: FIX;
             Sheeps[i].Tamed = results[i].z == 1.0f;
 
             if (SheepScriptableRendererFeature.instance != null) {
-                sheepMatrices[i] = new LocalToWorld(){Value = Sheeps[i].transform.localToWorldMatrix};
+                sheepMatrices[i] = new LocalToWorld() {Value = Sheeps[i].transform.localToWorldMatrix};
             }
         }
-        
+
         if (SheepScriptableRendererFeature.instance != null) {
             SheepScriptableRendererFeature.instance.SubmitRenderers(sheepRenderers, sheepMatrices);
             sheepRenderers.Dispose();
@@ -66,10 +71,13 @@ public class SheepManagerSystem : ComponentSystem {
         inputTranslations.Dispose();
         inputVelocities.Dispose();
         results.Dispose();
+        isAlive.Dispose();
     }
 
     [BurstCompile(CompileSynchronously = true)]
     private struct SheepFlockingJob : IJobParallelFor {
+        [ReadOnly]
+        public NativeArray<int> IsAlive;
         [ReadOnly]
         public NativeArray<Translation> InputTranslations;
         [ReadOnly]
@@ -102,28 +110,36 @@ public class SheepManagerSystem : ComponentSystem {
             var alignmentVector = new float2();
             var alignmentCount = 0;
 
-            for (var j = 0; j < InputTranslations.Length; j++) {
-                if (i == j) {
-                    continue;
-                }
+            if (IsAlive[i] == 1) {
+                for (var j = 0; j < InputTranslations.Length; j++) {
+                    if (IsAlive[j] == 0) {
+                        continue;
+                    }
 
-                var posTwo = InputTranslations[j].Value.xz;
-                if (math.length(posOne - posTwo) > MaxDistance) {
-                    continue;
-                }
+                    if (i == j) {
+                        continue;
+                    }
 
-                var sqrDist = math.distancesq(posOne, posTwo);
-                if (sqrDist < SeparationSqrRadius) {
-                    separationVector += posTwo;
-                    separationCount++;
-                }
-                if (sqrDist < AlignmentSqrRadius) {
-                    alignmentVector += InputVelocities[j].xz;
-                    alignmentCount++;
-                }
-                if (sqrDist < CohesionSqrRadius) {
-                    cohesionVector += posTwo;
-                    cohesionCount++;
+                    var posTwo = InputTranslations[j].Value.xz;
+                    if (math.length(posOne - posTwo) > MaxDistance) {
+                        continue;
+                    }
+
+                    var sqrDist = math.distancesq(posOne, posTwo);
+                    if (sqrDist < SeparationSqrRadius) {
+                        separationVector += posTwo;
+                        separationCount++;
+                    }
+
+                    if (sqrDist < AlignmentSqrRadius) {
+                        alignmentVector += InputVelocities[j].xz;
+                        alignmentCount++;
+                    }
+
+                    if (sqrDist < CohesionSqrRadius) {
+                        cohesionVector += posTwo;
+                        cohesionCount++;
+                    }
                 }
             }
 
@@ -154,7 +170,7 @@ public class SheepManagerSystem : ComponentSystem {
             if (totalForce.x != 0.0f || totalForce.y != 0.0f) {
                 totalForce.xy = math.normalize(totalForce.xy);
             }
-            
+
             OutputResults[i] = new float3(totalForce, tamed ? 1.0f : 0.0f);
         }
     }

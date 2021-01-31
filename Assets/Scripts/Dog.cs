@@ -2,16 +2,13 @@
 
 public class Dog : MonoBehaviour {
     public GameConfig Config;
+    public GameInput GameInput;
     
     [Space]
     public Rigidbody Rigidbody;
     public DogPushRadius PushRadius;
     public DogPullRadius PullRadius;
-        
-    private bool pull = false;
-    private bool push = false;
-    private Vector3 moveDir = Vector3.zero;
-    
+
     private AudioSource audioSource;
 
     void Start()
@@ -36,59 +33,17 @@ public class Dog : MonoBehaviour {
             audioSource.PlayOneShot(Config.DogWoofFriendly);
         }
     }
-    
-    void Update() {
-        moveDir = Vector3.zero;
-        
-        // Down
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
-            moveDir.z = -1;
-        }
-        
-        // Up
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
-            moveDir.z = 1;
-        }
-        
-        // Left
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
-            moveDir.x = -1;
-        }
-        
-        // Right
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
-            moveDir.x = 1;
-        }
-        
-        // Pull
-        if (Input.GetMouseButtonDown(0)) {
-            pull = true;
-        }
-        
-        if (Input.GetMouseButtonUp(0)) {
-            pull = false;
-        }
-        
-        // Push
-        if (Input.GetMouseButtonDown(1)) {
-            push = true;
-        }
-
-        if (Input.GetMouseButtonUp(1)) {
-            push = false;
-        }
-    }
 
     private void FixedUpdate() {
-        if (moveDir != Vector3.zero) {
-            Rigidbody.AddForce(moveDir * Config.DogMoveForce);
+        if (GameInput.GetDogMoveDir() != Vector3.zero) {
+            Rigidbody.AddForce(GameInput.GetDogMoveDir() * Config.DogMoveForce);
         }
 
-        if (push) {
+        if (GameInput.GetDogPush()) {
             PushRadius.Apply(Config.DogPushForce);
         }
 
-        if (pull) {
+        if (GameInput.GetDogPull()) {
             PullRadius.Apply(Config.DogPullForce);
         }
     }

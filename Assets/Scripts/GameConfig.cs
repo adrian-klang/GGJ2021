@@ -24,6 +24,7 @@ public class GameConfig : ScriptableObject {
     public float SeparationRadius = 1f;
     public float AlignmentRadius = 2f;
     public float CohesionRadius = 3f;
+    public float SheepRotationLerp = 0.5f;
 
     [Header("Wolf")]
     public float WolfAttackRadius = 3f;
@@ -38,7 +39,7 @@ public class GameConfig : ScriptableObject {
     public AnimationCurve DayNightLightCurve;
 
     [Header("Camera")]
-    [Range(0, 1)]
+    [Range(0, 20)]
     public float FollowDamp = 0.5f;
     public float Distance = 10;
 
@@ -63,4 +64,8 @@ public class GameConfig : ScriptableObject {
     public float DogWoofScaryOnPushChance;
     public float DogWoofScaryOnScareWolfChance;
     public AudioClip CoinCling;
+
+    [Header("Prefabs")]
+    public GameObject Fence;
+    public GameObject Trap;
 }

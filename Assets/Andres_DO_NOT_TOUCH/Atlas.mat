@@ -7,11 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sheep
-  m_Shader: {fileID: 4800000, guid: 0e61dbf78f66ad9418a44d5fd274f2a3, type: 3}
+  m_Name: Atlas
+  m_Shader: {fileID: 4800000, guid: 529f9f0a5c41ddf4cb925f2d28e518f1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -19,16 +19,11 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BaseMap:
-        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: bbb8c3eb6814bc74cb5d9124f5fcc4b6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Clipping: 0
-    - _Cutoff: 0.5
-    - _DstBlend: 0
-    - _SrcBlend: 1
-    - _ZWrite: 1
-    m_Colors:
-    - _BaseColor: {r: 0, g: 0.025228081, b: 0.990566, a: 1}
+    - _Shading: 0.3
+    m_Colors: []
   m_BuildTextureStacks: []

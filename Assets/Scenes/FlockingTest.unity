@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.5411765, g: 0.9490196, b: 1.7568628, a: 1}
+  m_AmbientEquatorColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientGroundColor: {r: 0.047169805, g: 0.03144654, b: 0, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_Sun: {fileID: 397450826}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -371,13 +371,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397450825}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &664648371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +385,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9539296887199394, guid: 9506067eadc94ae4d9c53836ba1e6469, type: 3}
+      propertyPath: GameInput
+      value: 
+      objectReference: {fileID: 9135522775125031295}
     - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
         type: 3}
       propertyPath: m_RootOrder
@@ -643,6 +647,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 354316992180817213, guid: 0e42c8dcdce3f53488daf32f1c5dd8bd,
         type: 3}
+      propertyPath: Cam
+      value: 
+      objectReference: {fileID: 9044994542825753289}
+    - target: {fileID: 354316992180817213, guid: 0e42c8dcdce3f53488daf32f1c5dd8bd,
+        type: 3}
       propertyPath: Config
       value: 
       objectReference: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde,
@@ -652,6 +661,11 @@ PrefabInstance:
       propertyPath: Wallet
       value: 
       objectReference: {fileID: 9135522775125031294}
+    - target: {fileID: 354316992180817213, guid: 0e42c8dcdce3f53488daf32f1c5dd8bd,
+        type: 3}
+      propertyPath: GameInput
+      value: 
+      objectReference: {fileID: 9135522775125031295}
     - target: {fileID: 3154535027939469812, guid: 0e42c8dcdce3f53488daf32f1c5dd8bd,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -913,6 +927,12 @@ PrefabInstance:
       objectReference: {fileID: 918741845}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 325ada9c875a30b41b18e7a1bec7e1ae, type: 3}
+--- !u!20 &9044994542825753289 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9044994543034031573, guid: 325ada9c875a30b41b18e7a1bec7e1ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 9044994542825753288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9135522775125031293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1003,5 +1023,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb3d8f7ea919a564195e60b605eae960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9135522775125031295 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2278016308262563120, guid: dab49b9d7b166f047a3fdc09e6f38a92,
+    type: 3}
+  m_PrefabInstance: {fileID: 9135522775125031293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e911f00237b12b4a81f8a87dad2c932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

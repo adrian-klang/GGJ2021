@@ -15,7 +15,7 @@ MonoBehaviour:
   SheepAmount: 50
   SpawnWorldWidth: 1
   SpawnWorldLength: 1
-  DogMoveForce: 30
+  DogMoveForce: 100
   DogPushForce: 40
   DogPushRadius: 9
   DogPushCurve:
@@ -74,6 +74,7 @@ MonoBehaviour:
   SeparationRadius: 1
   AlignmentRadius: 3
   CohesionRadius: 5
+  SheepRotationLerp: 5
   WolfAttackRadius: 3
   WolfMoveForce: 15
   WolfChangeTargetDiff: 10
@@ -126,3 +127,5 @@ MonoBehaviour:
   DogWoofScaryOnPushChance: 0
   DogWoofScaryOnScareWolfChance: 0
   CoinCling: {fileID: 0}
+  Fence: {fileID: 4615831481134257198, guid: 511d6f37534de034da9defea48b29379, type: 3}
+  Trap: {fileID: 4551350525153310473, guid: c91ec7ac63e953244a043aac421f09f6, type: 3}

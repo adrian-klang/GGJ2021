@@ -54,7 +54,7 @@ public class Sheep : MonoBehaviour {
     }
 
     private void OnDisable() {
-        SheepManagerSystem.Sheeps.Remove(this);
+        //SheepManagerSystem.Sheeps.Remove(this);
     }
     
     #if UNITY_EDITOR

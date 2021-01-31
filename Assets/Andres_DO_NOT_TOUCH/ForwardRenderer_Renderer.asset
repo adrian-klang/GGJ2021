@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SheepRendererFeature
   m_EditorClassIdentifier: 
   m_Active: 1
-  sheepMesh: {fileID: 8809228284901577735, guid: ac1fdce9a9cde734b80fda4e0e119855,
+  sheepMesh: {fileID: 8809228284901577735, guid: ed624c78bb6c93049a12f8c3029379f4,
     type: 3}
   sheepMaterial: {fileID: 2100000, guid: 5f64dee70ee0301489a607fd4d2c22f2, type: 2}
   sheepCount: 10000
