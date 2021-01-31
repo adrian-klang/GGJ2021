@@ -4,4 +4,7 @@ using UnityEngine;
 
 public class DogAnim : MonoBehaviour {
     public Dog dog;
+    
+    public void Bark() {
+    }
 }
