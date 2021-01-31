@@ -18,7 +18,7 @@ public class SheepManagerSystem : ComponentSystem {
         }
 
         var inputTranslations = new NativeArray<Translation>(Sheeps.Count, Allocator.TempJob);
-        var inputVelocities = new NativeArray<float2>(Sheeps.Count, Allocator.TempJob);
+        var inputVelocities = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
         for (var i = 0; i < Sheeps.Count; i++) {
             inputVelocities[i] = Sheeps[i].Rigidbody.velocity.normalized;
             inputTranslations[i] = new Translation {Value = Sheeps[i].transform.position};
@@ -48,7 +48,7 @@ public class SheepManagerSystem : ComponentSystem {
 
         sheepFlockingJobs.Schedule(Sheeps.Count, 64).Complete();
         for (var i = 0; i < Sheeps.Count; i++) {
-            Sheeps[i].Rigidbody.AddForce(results[i].xy);
+            Sheeps[i].Rigidbody.AddForce(new float3(results[i].x, 0, results[i].y));
             // TODO: FIX;
             Sheeps[i].Tamed = results[i].z == 1.0f;
 
@@ -73,7 +73,7 @@ public class SheepManagerSystem : ComponentSystem {
         [ReadOnly]
         public NativeArray<Translation> InputTranslations;
         [ReadOnly]
-        public NativeArray<float2> InputVelocities;
+        public NativeArray<float3> InputVelocities;
         [ReadOnly]
         public float AlignmentSqrRadius;
         [ReadOnly]
@@ -93,7 +93,7 @@ public class SheepManagerSystem : ComponentSystem {
         public NativeArray<float3> OutputResults;
 
         public void Execute(int i) {
-            var posOne = InputTranslations[i].Value.xy;
+            var posOne = InputTranslations[i].Value.xz;
 
             var cohesionVector = new float2();
             var cohesionCount = 0;
@@ -107,7 +107,7 @@ public class SheepManagerSystem : ComponentSystem {
                     continue;
                 }
 
-                var posTwo = InputTranslations[j].Value.xy;
+                var posTwo = InputTranslations[j].Value.xz;
                 if (math.length(posOne - posTwo) > MaxDistance) {
                     continue;
                 }
@@ -118,7 +118,7 @@ public class SheepManagerSystem : ComponentSystem {
                     separationCount++;
                 }
                 if (sqrDist < AlignmentSqrRadius) {
-                    alignmentVector += InputVelocities[j];
+                    alignmentVector += InputVelocities[j].xz;
                     alignmentCount++;
                 }
                 if (sqrDist < CohesionSqrRadius) {
@@ -151,7 +151,7 @@ public class SheepManagerSystem : ComponentSystem {
                 tamed = true;
             }
 
-            OutputResults[i] = new float3(totalForce.xy, tamed ? 1.0f : 0.0f);
+            OutputResults[i] = new float3(totalForce, tamed ? 1.0f : 0.0f);
         }
     }
 }

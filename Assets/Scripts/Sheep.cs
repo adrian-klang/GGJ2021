@@ -11,7 +11,7 @@ using UnityEngine;
 /// </summary>
 public class Sheep : MonoBehaviour {
     public GameConfig Config;
-    public Rigidbody2D Rigidbody;
+    public Rigidbody Rigidbody;
     public Entity sheepEntity;
 
     // Is this sheep owned by the player

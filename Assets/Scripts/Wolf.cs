@@ -12,10 +12,10 @@ public class Wolf : MonoBehaviour {
     [HideInInspector]
     public Vector3 DogScarePosition;
 
-    private Rigidbody2D rigidbody;
+    private Rigidbody rigidbody;
 
     private void Start() {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate() {
@@ -79,7 +79,7 @@ public class Wolf : MonoBehaviour {
         rigidbody.AddForce(forceToAdd);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnCollisionEnter(Collision other) {
         var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
         
         if (other.gameObject.CompareTag("Sheep")) {

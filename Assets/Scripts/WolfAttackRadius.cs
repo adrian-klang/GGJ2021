@@ -5,13 +5,13 @@ public class WolfAttackRadius : MonoBehaviour
 {
     private Wolf wolf;
     private GameConfig Config;
-    private CircleCollider2D collider;
+    private SphereCollider collider;
 
     private void Start()
     {
         wolf = GetComponentInParent<Wolf>();
         Config = wolf.Config;
-        collider = GetComponent<CircleCollider2D>();
+        collider = GetComponent<SphereCollider>();
     }
     
     private void Update()
@@ -19,7 +19,7 @@ public class WolfAttackRadius : MonoBehaviour
         collider.radius = Config.WolfAttackRadius;
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Sheep"))
         {
@@ -37,7 +37,7 @@ public class WolfAttackRadius : MonoBehaviour
         }
     }
     
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Sheep"))
         {

@@ -58,7 +58,7 @@ public class Spawner : MonoBehaviour
         
         for (int i = 0; i < Config.SheepAmount; i++)
         {
-            var position = new Vector2(Random.Range(-Config.SpawnWorldWidth * 0.5f, Config.SpawnWorldWidth * 0.5f), Random.Range(-Config.SpawnWorldLength * 0.5f, Config.SpawnWorldLength * 0.5f));
+            var position = new Vector3(Random.Range(-Config.SpawnWorldWidth * 0.5f, Config.SpawnWorldWidth * 0.5f), 0, Random.Range(-Config.SpawnWorldLength * 0.5f, Config.SpawnWorldLength * 0.5f));
             var prefab = Instantiate(Sheep, position, Quaternion.identity);
             
             prefab.GetComponent<Sheep>().sheepEntity = CreateInstance(entityArchetype, i, position, prefab);
@@ -100,13 +100,13 @@ public class Spawner : MonoBehaviour
         }
     }
     
-    private Entity CreateInstance(EntityArchetype archetype, int idx, Vector2 position, GameObject prefab) {
+    private Entity CreateInstance(EntityArchetype archetype, int idx, Vector3 position, GameObject prefab) {
         var entity = entityManager.CreateEntity(archetype);
 #if UNITY_EDITOR
         entityManager.SetName(entity, "SheepRenderer" + idx);
 #endif
         entityManager.AddComponentData(entity, new SheepRenderer() {dead = false});
-        entityManager.AddComponentData(entity, new Translation {Value = new float3(position.x, position.y, 0.0f)});
+        entityManager.AddComponentData(entity, new Translation {Value = position});
         entityManager.AddComponentData(entity, new Rotation {Value = quaternion.identity});
         entityManager.SetEnabled(entity, true);
 

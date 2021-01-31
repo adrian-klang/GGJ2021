@@ -7,25 +7,25 @@ public class Dog : MonoBehaviour {
     public GameConfig GameConfig;
     
     [Space]
-    public Rigidbody2D Rigidbody;
+    public Rigidbody Rigidbody;
     public DogPushRadius PushRadius;
     public DogPullRadius PullRadius;
         
     private bool pull = false;
     private bool push = false;
-    private Vector2 moveDir = Vector2.zero;
+    private Vector3 moveDir = Vector3.zero;
     
     void Update() {
-        moveDir = Vector2.zero;
+        moveDir = Vector3.zero;
         
         // Down
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
-            moveDir.y = -1;
+            moveDir.z = -1;
         }
         
         // Up
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
-            moveDir.y = 1;
+            moveDir.z = 1;
         }
         
         // Left
@@ -58,7 +58,7 @@ public class Dog : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (moveDir != Vector2.zero) {
+        if (moveDir != Vector3.zero) {
             Rigidbody.AddForce(moveDir * GameConfig.DogMoveForce);
         }
 
