@@ -15,7 +15,7 @@ MonoBehaviour:
   SheepAmount: 1
   SpawnWorldWidth: 1
   SpawnWorldLength: 1
-  DogMoveForce: 210
+  DogMoveForce: 220
   DogPushForce: 20
   DogPushRadius: 6
   DogPushCurve:
@@ -43,7 +43,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   DogPullForce: 15
-  DogPullRadius: 7
+  DogPullRadius: 5
   DogPullCurve:
     serializedVersion: 2
     m_Curve:
@@ -68,15 +68,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  SeparationForce: 6
+  SeparationForce: 8
   AlignmentForce: 1
   CohesionForce: 1
   SeparationRadius: 1
   AlignmentRadius: 3
   CohesionRadius: 4
   SheepRotationLerp: 0.5
-  WolfAttackRadius: 6
-  WolfMoveForce: 20
+  WolfAttackRadius: 5
+  WolfMoveForce: 25
   WolfChangeTargetDiff: 10
   WolfSecondsBeforeGettingUnscared: 5
   DayNightCycleDurationInSeconds: 90
@@ -92,8 +92,8 @@ MonoBehaviour:
   TamedSheepCoins: 1
   AliveSheepCoins: 1
   StartingCoinsCount: 0
-  FenceValue: 20
-  WolfTrapValue: 10
+  FenceValue: 100
+  WolfTrapValue: 50
   MessageTextTimeout: 3
   SheepBaa:
   - {fileID: 8300000, guid: f8da141a86e177f48a8279b7c442452b, type: 3}
