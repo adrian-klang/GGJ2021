@@ -16,22 +16,22 @@ public class SheepManagerSystem : ComponentSystem {
             Config = Resources.Load<GameConfig>("GameConfig");
             NativeLeakDetection.Mode = NativeLeakDetectionMode.EnabledWithStackTrace;
         }
-
-        var inputTranslations = new NativeArray<Translation>(Sheeps.Count, Allocator.TempJob);
-        var inputVelocities = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
-        var isAlive = new NativeArray<int>(Sheeps.Count, Allocator.TempJob);
-        for (var i = 0; i < Sheeps.Count; i++) {
-            inputVelocities[i] = Sheeps[i].Rigidbody.velocity;
-            inputTranslations[i] = new Translation {Value = Sheeps[i].transform.position};
-            isAlive[i] = Sheeps[i].gameObject.activeSelf ? 1 : 0;
-        }
-
+        
         var sheepQuery = GetEntityQuery(typeof(SheepRenderer), typeof(Translation));
         NativeArray<SheepRenderer> sheepRenderers = new NativeArray<SheepRenderer>();
         NativeArray<LocalToWorld> sheepMatrices = new NativeArray<LocalToWorld>();
         if (SheepScriptableRendererFeature.instance != null) {
             sheepRenderers = sheepQuery.ToComponentDataArray<SheepRenderer>(Allocator.TempJob);
             sheepMatrices = new NativeArray<LocalToWorld>(SheepScriptableRendererFeature.MAX_SHEEP, Allocator.Temp);
+        }
+
+        var inputTranslations = new NativeArray<Translation>(Sheeps.Count, Allocator.TempJob);
+        var inputVelocities = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
+        var isAlive = new NativeArray<int>(Sheeps.Count, Allocator.TempJob);
+        for (var i = 0; i < Sheeps.Count; i++) {
+            inputVelocities[i] = Sheeps[i].Rigidbody.velocity;
+            isAlive[i] = Sheeps[i].gameObject.activeSelf ? 1 : 0;
+            inputTranslations[i] = new Translation {Value = Sheeps[i].transform.position};
         }
 
         var results = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
