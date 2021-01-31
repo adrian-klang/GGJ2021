@@ -112,3 +112,5 @@ MonoBehaviour:
   FenceValue: 10
   WolfTrapValue: 10
   MessageTextTimeout: 3
+  Fence: {fileID: 4615831481134257198, guid: 511d6f37534de034da9defea48b29379, type: 3}
+  Trap: {fileID: 4551350525153310473, guid: c91ec7ac63e953244a043aac421f09f6, type: 3}
