@@ -53,6 +53,7 @@ MonoBehaviour:
   LevelConfig: {fileID: 11400000, guid: 9f335d82f1109d64dbd5b3fea7b1e073, type: 2}
   DayNightCycle: {fileID: 9140761708967759881}
   PlayerWallet: {fileID: -6995926517829892311}
+  UI: {fileID: 354316992180817213, guid: 0e42c8dcdce3f53488daf32f1c5dd8bd, type: 3}
 --- !u!114 &9140761708967759881
 MonoBehaviour:
   m_ObjectHideFlags: 0
