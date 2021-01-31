@@ -445,6 +445,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dog
       objectReference: {fileID: 0}
+    - target: {fileID: 7821693978073196395, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9506067eadc94ae4d9c53836ba1e6469, type: 3}
 --- !u!1 &750170106
@@ -915,6 +920,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9140761708967759881, guid: dab49b9d7b166f047a3fdc09e6f38a92,
+        type: 3}
+      propertyPath: Light
+      value: 
+      objectReference: {fileID: 397450825}
+    - target: {fileID: 9140761708967759881, guid: dab49b9d7b166f047a3fdc09e6f38a92,
+        type: 3}
+      propertyPath: Increase.x
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 9140761708967759883, guid: dab49b9d7b166f047a3fdc09e6f38a92,
         type: 3}
       propertyPath: m_RootOrder

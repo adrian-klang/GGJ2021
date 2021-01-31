@@ -34,6 +34,7 @@ public class GameConfig : ScriptableObject {
     public float DayNightCycleDurationInSeconds = 10;
     [Range(0, 1)]
     public float DayNightThreshold = 0.75f;
+    public AnimationCurve DayNightLightCurve;
 
     [Header("Camera")]
     [Range(0, 1)]
