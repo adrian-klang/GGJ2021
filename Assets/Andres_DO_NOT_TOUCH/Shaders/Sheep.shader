@@ -23,6 +23,10 @@
             HLSLPROGRAM
             #pragma multi_compile_instancing
 
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+            #pragma multi_compile _ _SHADOWS_SOFT
+
             #pragma vertex SheepVertex
             #pragma fragment SheepFragment
 
@@ -56,6 +60,8 @@
 
                 output.normalWS = SafeNormalize(mul((float3x3)localToWorld, normalOS));
 
+                output.shadowCoord = TransformWorldToShadowCoord(positionWS);;
+
                 return output;
             }
 
@@ -76,8 +82,8 @@
                 half3 irradiance = albedo.rgb * SampleSheepSH(input.normalWS);
 
                 // Compute direct lighting.
-                Light mainLight = GetMainLight();
-                half directTerm = saturate(dot(input.normalWS, mainLight.direction) / 0.3f)* mainLight.shadowAttenuation;
+                Light mainLight = GetMainLight(input.shadowCoord);
+                half directTerm = saturate(dot(input.normalWS, mainLight.direction) / 0.3f) * mainLight.shadowAttenuation;
                 half3 radiance = albedo.rgb * mainLight.color * directTerm;
 
                 return half4(irradiance + radiance, 1.0f);

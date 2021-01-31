@@ -16,11 +16,17 @@
             Cull Off
 
             HLSLPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
+            #pragma multi_compile_instancing
+
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
+            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
+            #pragma multi_compile _ _SHADOWS_SOFT
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+
+            #pragma vertex vert
+            #pragma fragment frag
             
             struct Attributes
             {
@@ -35,6 +41,7 @@
                 float4 positionCS : SV_POSITION;
                 float2 uv : TEXCOORD0;
                 float3 normalWS : TEXCOORD1;
+                float4 shadowcoord : TEXCOORD2;
             };
 
             UNITY_INSTANCING_BUFFER_START(UnityPerMaterial)
@@ -53,6 +60,8 @@
 
                 VertexNormalInputs normalInput = GetVertexNormalInputs(input.normalOS, input.tangentOS);
                 output.normalWS = normalInput.normalWS;
+
+                output.shadowcoord = TransformWorldToShadowCoord(TransformObjectToWorld(input.positionOS.xyz));;
                 return output;
             }
 
@@ -73,7 +82,7 @@
                 half3 irradiance = albedo.rgb * SampleSH(input.normalWS);
 
                 // Compute direct lighting.
-                Light mainLight = GetMainLight();
+                Light mainLight = GetMainLight(input.shadowcoord);
                 half directTerm = saturate(dot(input.normalWS, mainLight.direction) / _Shading) * mainLight.shadowAttenuation;
                 half3 radiance = albedo.rgb * mainLight.color * directTerm;
 
