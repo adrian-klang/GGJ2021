@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: LevelConfig
   m_EditorClassIdentifier: 
   WolfSpawners:
-  - {fileID: 5942528561677055548, guid: a458dd5b316a58f419e0b488337404bc, type: 3}
-  - {fileID: 5942528561677055548, guid: 8086bbbdac4101440895ee512e8a32d1, type: 3}
-  - {fileID: 5942528561677055548, guid: 59510781d56ecf2449f65493155dbe16, type: 3}
-  - {fileID: 5942528561677055548, guid: 13baff093ad1b8d438c9a28adf46092c, type: 3}
-  - {fileID: 5942528561677055548, guid: cd01753b6c9a2cd4bbfffcd48d41db58, type: 3}
+  - {x: -9.416902e-31, y: 9.12e-43, z: 3.2e-44}
+  - {x: 0, y: 1.5872803e+29, z: 9.11e-43}
+  - {x: 4.6e-44, y: 0, z: -9.416902e-31}
+  - {x: 9.12e-43, y: -9.416932e-31, z: 9.12e-43}
+  - {x: 1.5872864e+29, y: 9.11e-43, z: 6.9e-44}
   WolvesPerDay: 0100000002000000030000000400000005000000
