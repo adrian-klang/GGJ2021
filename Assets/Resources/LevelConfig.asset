@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WolfSpawners:
   - {fileID: 5942528561677055548, guid: a458dd5b316a58f419e0b488337404bc, type: 3}
+  - {fileID: 5942528561677055548, guid: 8086bbbdac4101440895ee512e8a32d1, type: 3}
+  - {fileID: 5942528561677055548, guid: 59510781d56ecf2449f65493155dbe16, type: 3}
+  - {fileID: 5942528561677055548, guid: 13baff093ad1b8d438c9a28adf46092c, type: 3}
+  - {fileID: 5942528561677055548, guid: cd01753b6c9a2cd4bbfffcd48d41db58, type: 3}
   WolvesPerDay: 0100000002000000030000000400000005000000

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a276796d6bbd30458e7fbbaec30ab90, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  SheepAmount: 2000
-  SpawnWorldWidth: 30
-  SpawnWorldLength: 30
-  DogMoveForce: 15
-  DogPushForce: 10
+  SheepAmount: 50
+  SpawnWorldWidth: 1
+  SpawnWorldLength: 1
+  DogMoveForce: 25
+  DogPushForce: 30
   DogPushRadius: 10
   DogPushCurve:
     serializedVersion: 2
@@ -42,7 +42,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  DogPullForce: 4
+  DogPullForce: 60
   DogPullRadius: 10
   DogPullCurve:
     serializedVersion: 2
@@ -68,19 +68,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  SeparationForce: 3
-  AlignmentForce: 1.5
-  CohesionForce: 1
+  SeparationForce: 1
+  AlignmentForce: 2
+  CohesionForce: 3
   SeparationRadius: 1
   AlignmentRadius: 2
   CohesionRadius: 3
-  WolfAttackRadius: 3
+  WolfAttackRadius: 5
   WolfMoveForce: 15
   WolfChangeTargetDiff: 10
-  WolfSecondsBeforeGettingUnscared: 2
-  DayNightCycleDurationInSeconds: 10
+  WolfSecondsBeforeGettingUnscared: 5
+  DayNightCycleDurationInSeconds: 30
   DayNightThreshold: 0.75
-  FollowDamp: 0.713
+  FollowDamp: 1
   Distance: 20
   TamedSheepCoins: 1
   AliveSheepCoins: 1
