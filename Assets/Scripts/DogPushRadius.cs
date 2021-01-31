@@ -31,7 +31,7 @@ public class DogPushRadius : MonoBehaviour {
     }
 
     public void Apply(float force) {
-        dog.PlayScaryAudio();
+        dog.PlayScaryAudio(GameConfig.DogWoofScaryOnPushChance);
 
         foreach (var sheep in sheeps) {
             if (sheep == null) {
