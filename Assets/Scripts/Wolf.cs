@@ -86,6 +86,7 @@ public class Wolf : MonoBehaviour {
             var sheep = other.gameObject.GetComponent<Sheep>();
             if (sheep.Tamed) {
                 sheep.gameObject.SetActive(false);
+                sheep.gameObject.transform.position = Vector3.down * 10;
                 AttackRadiusSheep.Remove(other.gameObject);
                 //SheepManagerSystem.Sheeps.Remove(sheep);
                 //Destroy(other.gameObject);
