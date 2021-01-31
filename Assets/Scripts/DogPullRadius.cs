@@ -31,6 +31,8 @@ public class DogPullRadius : MonoBehaviour {
     }
 
     public void Apply(float force) {
+        dog.PlayFriendlyAudio();
+        
         foreach (var sheep in sheeps) {
             if (sheep == null) {
                 continue;
@@ -43,7 +45,6 @@ public class DogPullRadius : MonoBehaviour {
             {
                 sheep.Tamed = true;
             }
-            dog.PlayFriendlyAudio();
         }
     }
 }

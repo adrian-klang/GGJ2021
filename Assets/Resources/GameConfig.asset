@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a276796d6bbd30458e7fbbaec30ab90, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  SheepAmount: 50
+  SheepAmount: 1
   SpawnWorldWidth: 1
   SpawnWorldLength: 1
-  DogMoveForce: 180
+  DogMoveForce: 210
   DogPushForce: 20
   DogPushRadius: 6
   DogPushCurve:
@@ -42,8 +42,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  DogPullForce: 13
-  DogPullRadius: 5
+  DogPullForce: 15
+  DogPullRadius: 7
   DogPullCurve:
     serializedVersion: 2
     m_Curve:
@@ -92,7 +92,7 @@ MonoBehaviour:
   TamedSheepCoins: 1
   AliveSheepCoins: 1
   StartingCoinsCount: 0
-  FenceValue: 10
+  FenceValue: 20
   WolfTrapValue: 10
   MessageTextTimeout: 3
   SheepBaa:
