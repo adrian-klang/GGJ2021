@@ -51,6 +51,8 @@ public class SheepManagerSystem : ComponentSystem {
 
         sheepFlockingJobs.Schedule(Sheeps.Count, 64).Complete();
         for (var i = 0; i < Sheeps.Count; i++) {
+            var fwd = Sheeps[i].transform.forward;
+            Sheeps[i].transform.forward = Vector3.Slerp(fwd, Vector3.Normalize(Sheeps[i].Rigidbody.velocity), Config.SheepRotationLerp * Time.DeltaTime);
             Sheeps[i].Rigidbody.AddForce(new float3(results[i].x, 0, results[i].y));
             // TODO: FIX;
             Sheeps[i].Tamed = results[i].z == 1.0f;
