@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9140761708967759883}
   - component: {fileID: 9140761708967759892}
-  - component: {fileID: 9140761708967759882}
   - component: {fileID: 9140761708967759881}
   - component: {fileID: -6995926517829892311}
   m_Layer: 0
@@ -52,19 +51,6 @@ MonoBehaviour:
   LevelConfig: {fileID: 11400000, guid: 9f335d82f1109d64dbd5b3fea7b1e073, type: 2}
   DayNightCycle: {fileID: 9140761708967759881}
   PlayerWallet: {fileID: -6995926517829892311}
---- !u!114 &9140761708967759882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9140761708967759893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc9f60f7dd4171746b3f4add13af0d7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
 --- !u!114 &9140761708967759881
 MonoBehaviour:
   m_ObjectHideFlags: 0

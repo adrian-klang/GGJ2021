@@ -5,24 +5,24 @@ using UnityEngine;
 
 public class DogPullRadius : MonoBehaviour {
     public GameConfig GameConfig;
-    public CircleCollider2D circleCollider;
+    public SphereCollider sphereCollider;
 
     private float radiusSqr;
     private List<Sheep> sheeps = new List<Sheep>();
     
     private void Update() {
-        circleCollider.radius = GameConfig.DogPullRadius;
+        sphereCollider.radius = GameConfig.DogPullRadius;
         radiusSqr = GameConfig.DogPullRadius * GameConfig.DogPullRadius;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter(Collider other) {
         var sheep = other.GetComponent<Sheep>();
         if (sheep != null) {
             sheeps.Add(sheep);
         }
     }
 
-    public void OnTriggerExit2D(Collider2D other) {
+    public void OnTriggerExit(Collider other) {
         var sheep = other.GetComponent<Sheep>();
         if (sheep != null) {
             sheeps.Remove(sheep);
