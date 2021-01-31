@@ -8,6 +8,8 @@ public class PlayerWallet : MonoBehaviour {
 
     public static PlayerWallet Instance;
 
+    private AudioSource audioSource;
+    
     private void Awake() {
         Instance = this;
     }
@@ -18,6 +20,7 @@ public class PlayerWallet : MonoBehaviour {
 
     private void Start() {
         TotalCoins = Config.StartingCoinsCount;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public int GetTotalCoins() {
@@ -34,6 +37,7 @@ public class PlayerWallet : MonoBehaviour {
             return;
         }
 
+        audioSource.PlayOneShot(Config.CoinCling);
         TotalCoins -= amount;
     }
 }
