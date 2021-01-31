@@ -38,6 +38,7 @@ public class Spawner : MonoBehaviour
         }
         else if (spawnedWolves && DayNightCycle.IsItDay())
         {
+            DestroyAllWolves();
             Debug.Log("It's day");
             AddCoinsPerSheep();
             spawnedWolves = false;
@@ -66,11 +67,25 @@ public class Spawner : MonoBehaviour
 
     private void SpawnWolves(int dayCounter)
     {
+        if (LevelConfig.WolvesPerDay == null)
+        {
+            return;
+        }
+        
         for (int i = 0; i < LevelConfig.WolvesPerDay[dayCounter]; i++)
         {
-            var spawnPos = LevelConfig.WolfSpawners[Random.Range(0, LevelConfig.WolfSpawners.Count - 1)].position;
+            var spawnPos = LevelConfig.WolfSpawners[Random.Range(0, LevelConfig.WolfSpawners.Count - 1)];
 
             Instantiate(Wolf, spawnPos, Wolf.transform.rotation);
+        }
+    }
+
+    private void DestroyAllWolves()
+    {
+        var wolves = GameObject.FindGameObjectsWithTag("Wolf");
+        for (int i = wolves.Length - 1; i >= 0; i--)
+        {
+            Destroy(wolves[i]);
         }
     }
     

@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelConfig : ScriptableObject
 {
     [Header("Spawners")]
-    public List<Transform> WolfSpawners = new List<Transform>();
+    public List<Vector3> WolfSpawners = new List<Vector3>();
     
     [Header("Days")]
     public List<int> WolvesPerDay = new List<int>();
