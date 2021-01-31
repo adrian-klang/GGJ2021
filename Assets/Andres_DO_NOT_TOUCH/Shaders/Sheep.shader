@@ -65,19 +65,18 @@
                 
                 float4 baseMap = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv);
                 float4 baseColor = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _BaseColor);
-
-                float3 baseColorHSV = RgbToHsv(baseColor.rgb);
-                baseColorHSV.r = (baseColorHSV.r + (hash * 2.0f - 1.0f) * 0.15f) % 1.0f;
-                baseColor.rgb = HsvToRgb(baseColorHSV);
-                
                 float4 albedo = baseMap * baseColor;
+
+                float3 albedoHSV = RgbToHsv(albedo.rgb);
+                albedoHSV.b = (albedoHSV.b + (hash * 2.0f - 1.0f) * 0.3f) % 1.0f;
+                albedo.rgb = HsvToRgb(albedoHSV);
 
                 // Compute ambient lighting.
                 half3 irradiance = albedo.rgb * SampleSheepSH(input.normalWS);
 
                 // Compute direct lighting.
                 Light mainLight = GetMainLight();
-                half directTerm = saturate(dot(input.normalWS, mainLight.direction) * mainLight.shadowAttenuation);
+                half directTerm = saturate(dot(input.normalWS, mainLight.direction) / 0.3f)* mainLight.shadowAttenuation;
                 half3 radiance = albedo.rgb * mainLight.color * directTerm;
 
                 return half4(irradiance + radiance, 1.0f);
