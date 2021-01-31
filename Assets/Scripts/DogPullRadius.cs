@@ -40,7 +40,7 @@ public class DogPullRadius : MonoBehaviour {
             var f = (transform.position - sheep.transform.position).normalized;
             sheep.Rigidbody.AddForce(f * (force * GameConfig.DogPullCurve.Evaluate(l)));
             sheep.Tamed = true;
-            dog.PlayPullAudio();
+            dog.PlayFriendlyAudio();
         }
     }
 }

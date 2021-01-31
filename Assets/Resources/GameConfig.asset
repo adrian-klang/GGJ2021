@@ -74,7 +74,7 @@ MonoBehaviour:
   SeparationRadius: 1
   AlignmentRadius: 3
   CohesionRadius: 5
-  SheepRotationLerp: 5
+  SheepRotationLerp: 0.5
   WolfAttackRadius: 3
   WolfMoveForce: 15
   WolfChangeTargetDiff: 10
@@ -119,13 +119,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 54078005288f46244ad29195ab9a9bff, type: 3}
   - {fileID: 8300000, guid: 7bd2b7636c04d9d48a0ceda67eacc926, type: 3}
   SheepBaaChance: 0.02
-  WolfGrowl: {fileID: 0}
-  SheepDying: {fileID: 0}
-  DogWoofFriendly: {fileID: 0}
-  DogWoofFriendlyOnPullChance: 0
-  DogWoofScary: {fileID: 0}
-  DogWoofScaryOnPushChance: 0
-  DogWoofScaryOnScareWolfChance: 0
-  CoinCling: {fileID: 0}
+  WolfGrowl:
+  - {fileID: 8300000, guid: e066d369e1ad36241bdeda161a89a643, type: 3}
+  - {fileID: 8300000, guid: 14007b7249a2bbb41b2028a64199b04b, type: 3}
+  - {fileID: 8300000, guid: 8ea2ddd011e38e34ba21ca1191b0b6cd, type: 3}
+  - {fileID: 8300000, guid: 8f71ec203bbcc6c49a79056fe351d1f2, type: 3}
+  SheepDying: {fileID: 8300000, guid: 54078005288f46244ad29195ab9a9bff, type: 3}
+  DogWoofFriendly: {fileID: 8300000, guid: 74f0849b8fd8ca346bb4593644d2752d, type: 3}
+  DogWoofFriendlyOnPullChance: 1
+  DogWoofScary: {fileID: 8300000, guid: 835d83f74be9cae488cde820105dd03e, type: 3}
+  DogWoofScaryOnPushChance: 1
+  DogWoofScaryOnScareWolfChance: 1
+  CoinCling: {fileID: 8300000, guid: 715a5c264e0b60343a35c1b57fb65d50, type: 3}
   Fence: {fileID: 4615831481134257198, guid: 511d6f37534de034da9defea48b29379, type: 3}
   Trap: {fileID: 4551350525153310473, guid: c91ec7ac63e953244a043aac421f09f6, type: 3}

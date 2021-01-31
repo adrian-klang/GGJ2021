@@ -20,8 +20,12 @@ public class Wolf : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void PlayAudio()
+    public void PlayGrowlAudio()
     {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
         audioSource.PlayOneShot(Config.WolfGrowl[Random.Range(0, Config.WolfGrowl.Count - 1)]);
     }
 
@@ -92,12 +96,12 @@ public class Wolf : MonoBehaviour {
         if (other.gameObject.CompareTag("Sheep")) {
             var sheep = other.gameObject.GetComponent<Sheep>();
             if (sheep.Tamed) {
-                sheep.gameObject.SetActive(false);
                 sheep.gameObject.transform.position = Vector3.down * 10;
                 AttackRadiusSheep.Remove(other.gameObject);
                 //SheepManagerSystem.Sheeps.Remove(sheep);
                 //Destroy(other.gameObject);
                 //entityManager.DestroyEntity(sheep.sheepEntity);
+                sheep.PlayDieAudio();
             }
         }
     }

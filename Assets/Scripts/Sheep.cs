@@ -43,6 +43,11 @@ public class Sheep : MonoBehaviour {
         yield return PlayBaaAudio();
     }
 
+    public void PlayDieAudio()
+    {
+        audioSource.PlayOneShot(Config.SheepDying);
+    }
+
     private void OnSetTamed(bool tamed) {
         if (tamed) {
             PlayerWallet.Instance.AddCoins(Config.TamedSheepCoins);

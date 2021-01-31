@@ -124,6 +124,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &96974701 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2278016308262563120, guid: dab49b9d7b166f047a3fdc09e6f38a92,
+    type: 3}
+  m_PrefabInstance: {fileID: 1998773056}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e911f00237b12b4a81f8a87dad2c932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &287230462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,6 +143,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2898232417003110117, guid: 9506067eadc94ae4d9c53836ba1e6469,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9539296887199394, guid: 9506067eadc94ae4d9c53836ba1e6469, type: 3}
+      propertyPath: GameInput
+      value: 
+      objectReference: {fileID: 96974701}
     - target: {fileID: 1277235593710865421, guid: 9506067eadc94ae4d9c53836ba1e6469,
         type: 3}
       propertyPath: m_RootOrder
@@ -271,7 +292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804893069}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 55.3, z: -16.29}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

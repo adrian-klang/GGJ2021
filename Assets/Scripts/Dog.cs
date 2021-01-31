@@ -16,7 +16,7 @@ public class Dog : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void PlayPushAudio()
+    public void PlayScaryAudio()
     {
         var randomChance = Random.Range(0f, 1f);
         if (randomChance < Config.DogWoofScaryOnPushChance)
@@ -25,7 +25,7 @@ public class Dog : MonoBehaviour {
         }
     }
     
-    public void PlayPullAudio()
+    public void PlayFriendlyAudio()
     {
         var randomChance = Random.Range(0f, 1f);
         if (randomChance < Config.DogWoofFriendlyOnPullChance)

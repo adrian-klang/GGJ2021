@@ -144,7 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50edd68505de423419498db116cd73ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameConfig: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
+  Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
+  GameInput: {fileID: -2278016308262563120, guid: dab49b9d7b166f047a3fdc09e6f38a92,
+    type: 3}
   Rigidbody: {fileID: 7821693978073196395}
   PushRadius: {fileID: 8290920310672130174}
   PullRadius: {fileID: 7322378796246888943}
@@ -233,7 +235,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -332,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameConfig: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
   sphereCollider: {fileID: 6794700986227614309}
+  dog: {fileID: 9539296887199394}
 --- !u!1 &9204685949176955673
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,3 +394,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameConfig: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
   sphereCollider: {fileID: 2961793421174376582}
+  dog: {fileID: 9539296887199394}
