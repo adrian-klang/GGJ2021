@@ -105,7 +105,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e066d369e1ad36241bdeda161a89a643, type: 3}
   - {fileID: 8300000, guid: 14007b7249a2bbb41b2028a64199b04b, type: 3}
   - {fileID: 8300000, guid: 8f71ec203bbcc6c49a79056fe351d1f2, type: 3}
-  SheepDying: {fileID: 8300000, guid: d8b8518690050b6488793a601208f245, type: 3}
+  SheepDying: {fileID: 8300000, guid: 905f7e445768b064e88c4f0148638e83, type: 3}
   DogWoofFriendly: {fileID: 8300000, guid: 74f0849b8fd8ca346bb4593644d2752d, type: 3}
   DogWoofFriendlyOnPullChance: 1
   DogWoofScary: {fileID: 8300000, guid: 835d83f74be9cae488cde820105dd03e, type: 3}
