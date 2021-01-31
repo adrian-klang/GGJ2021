@@ -6,6 +6,7 @@ using UnityEngine;
 public class DogPushRadius : MonoBehaviour {
     public GameConfig GameConfig;
     public SphereCollider sphereCollider;
+    public Dog dog;
 
     private float radiusSqr;
     private List<Sheep> sheeps = new List<Sheep>();
@@ -34,6 +35,7 @@ public class DogPushRadius : MonoBehaviour {
             var l = (transform.position - sheep.transform.position).sqrMagnitude / radiusSqr;
             var f = (sheep.transform.position - transform.position).normalized;
             sheep.Rigidbody.AddForce(f * (force * GameConfig.DogPushCurve.Evaluate(l)));
+            dog.PlayPushAudio();
         }
     }
 }

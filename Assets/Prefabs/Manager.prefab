@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
+  Light: {fileID: 0}
 --- !u!114 &-6995926517829892311
 MonoBehaviour:
   m_ObjectHideFlags: 0

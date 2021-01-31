@@ -13,9 +13,16 @@ public class Wolf : MonoBehaviour {
     public Vector3 DogScarePosition;
 
     private Rigidbody rigidbody;
+    private AudioSource audioSource;
 
     private void Start() {
         rigidbody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void PlayAudio()
+    {
+        audioSource.PlayOneShot(Config.WolfGrowl[Random.Range(0, Config.WolfGrowl.Count - 1)]);
     }
 
     private void FixedUpdate() {

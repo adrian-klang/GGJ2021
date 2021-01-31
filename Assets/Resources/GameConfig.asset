@@ -112,3 +112,17 @@ MonoBehaviour:
   FenceValue: 10
   WolfTrapValue: 10
   MessageTextTimeout: 3
+  SheepBaa:
+  - {fileID: 8300000, guid: f8da141a86e177f48a8279b7c442452b, type: 3}
+  - {fileID: 8300000, guid: 1f5c40b678526c64ca1d4cd524713aa3, type: 3}
+  - {fileID: 8300000, guid: 54078005288f46244ad29195ab9a9bff, type: 3}
+  - {fileID: 8300000, guid: 7bd2b7636c04d9d48a0ceda67eacc926, type: 3}
+  SheepBaaChance: 0.02
+  WolfGrowl: {fileID: 0}
+  SheepDying: {fileID: 0}
+  DogWoofFriendly: {fileID: 0}
+  DogWoofFriendlyOnPullChance: 0
+  DogWoofScary: {fileID: 0}
+  DogWoofScaryOnPushChance: 0
+  DogWoofScaryOnScareWolfChance: 0
+  CoinCling: {fileID: 0}

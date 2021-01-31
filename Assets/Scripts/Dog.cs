@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Dog : MonoBehaviour {
-    public GameConfig GameConfig;
+    public GameConfig Config;
     
     [Space]
     public Rigidbody Rigidbody;
@@ -14,6 +11,31 @@ public class Dog : MonoBehaviour {
     private bool pull = false;
     private bool push = false;
     private Vector3 moveDir = Vector3.zero;
+    
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void PlayPushAudio()
+    {
+        var randomChance = Random.Range(0f, 1f);
+        if (randomChance < Config.DogWoofScaryOnPushChance)
+        {
+            audioSource.PlayOneShot(Config.DogWoofScary);
+        }
+    }
+    
+    public void PlayPullAudio()
+    {
+        var randomChance = Random.Range(0f, 1f);
+        if (randomChance < Config.DogWoofFriendlyOnPullChance)
+        {
+            audioSource.PlayOneShot(Config.DogWoofFriendly);
+        }
+    }
     
     void Update() {
         moveDir = Vector3.zero;
@@ -59,15 +81,15 @@ public class Dog : MonoBehaviour {
 
     private void FixedUpdate() {
         if (moveDir != Vector3.zero) {
-            Rigidbody.AddForce(moveDir * GameConfig.DogMoveForce);
+            Rigidbody.AddForce(moveDir * Config.DogMoveForce);
         }
 
         if (push) {
-            PushRadius.Apply(GameConfig.DogPushForce);
+            PushRadius.Apply(Config.DogPushForce);
         }
 
         if (pull) {
-            PullRadius.Apply(GameConfig.DogPullForce);
+            PullRadius.Apply(Config.DogPullForce);
         }
     }
 
@@ -75,10 +97,10 @@ public class Dog : MonoBehaviour {
         var col = Gizmos.color;
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, GameConfig.DogPullRadius);
+        Gizmos.DrawWireSphere(transform.position, Config.DogPullRadius);
         
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, GameConfig.DogPushRadius);
+        Gizmos.DrawWireSphere(transform.position, Config.DogPushRadius);
 
         Gizmos.color = col;
     }
