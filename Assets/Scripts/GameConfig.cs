@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game/GameConfig")]
 public class GameConfig : ScriptableObject {
@@ -51,6 +52,18 @@ public class GameConfig : ScriptableObject {
 
     [Header("UI")]
     public float MessageTextTimeout = 3;
+    
+    [Header("Sounds")]
+    public List<AudioClip> SheepBaa;
+    public float SheepBaaChance;
+    public List<AudioClip> WolfGrowl;
+    public AudioClip SheepDying;
+    public AudioClip DogWoofFriendly;
+    public float DogWoofFriendlyOnPullChance;
+    public AudioClip DogWoofScary;
+    public float DogWoofScaryOnPushChance;
+    public float DogWoofScaryOnScareWolfChance;
+    public AudioClip CoinCling;
 
     [Header("Prefabs")]
     public GameObject Fence;

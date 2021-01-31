@@ -15,9 +15,9 @@ MonoBehaviour:
   SheepAmount: 50
   SpawnWorldWidth: 1
   SpawnWorldLength: 1
-  DogMoveForce: 100
-  DogPushForce: 40
-  DogPushRadius: 9
+  DogMoveForce: 180
+  DogPushForce: 20
+  DogPushRadius: 6
   DogPushCurve:
     serializedVersion: 2
     m_Curve:
@@ -42,8 +42,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  DogPullForce: 60
-  DogPullRadius: 8
+  DogPullForce: 13
+  DogPullRadius: 5
   DogPullCurve:
     serializedVersion: 2
     m_Curve:
@@ -73,35 +73,17 @@ MonoBehaviour:
   CohesionForce: 1
   SeparationRadius: 1
   AlignmentRadius: 3
-  CohesionRadius: 5
-  SheepRotationLerp: 5
-  WolfAttackRadius: 3
-  WolfMoveForce: 15
+  CohesionRadius: 4
+  SheepRotationLerp: 0.5
+  WolfAttackRadius: 6
+  WolfMoveForce: 20
   WolfChangeTargetDiff: 10
   WolfSecondsBeforeGettingUnscared: 5
-  DayNightCycleDurationInSeconds: 60
-  DayNightThreshold: 0.5
+  DayNightCycleDurationInSeconds: 90
+  DayNightThreshold: 0.4
   DayNightLightCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -113,5 +95,22 @@ MonoBehaviour:
   FenceValue: 10
   WolfTrapValue: 10
   MessageTextTimeout: 3
+  SheepBaa:
+  - {fileID: 8300000, guid: f8da141a86e177f48a8279b7c442452b, type: 3}
+  - {fileID: 8300000, guid: 1f5c40b678526c64ca1d4cd524713aa3, type: 3}
+  - {fileID: 8300000, guid: 54078005288f46244ad29195ab9a9bff, type: 3}
+  - {fileID: 8300000, guid: 7bd2b7636c04d9d48a0ceda67eacc926, type: 3}
+  SheepBaaChance: 0.02
+  WolfGrowl:
+  - {fileID: 8300000, guid: e066d369e1ad36241bdeda161a89a643, type: 3}
+  - {fileID: 8300000, guid: 14007b7249a2bbb41b2028a64199b04b, type: 3}
+  - {fileID: 8300000, guid: 8f71ec203bbcc6c49a79056fe351d1f2, type: 3}
+  SheepDying: {fileID: 8300000, guid: 54078005288f46244ad29195ab9a9bff, type: 3}
+  DogWoofFriendly: {fileID: 8300000, guid: 74f0849b8fd8ca346bb4593644d2752d, type: 3}
+  DogWoofFriendlyOnPullChance: 1
+  DogWoofScary: {fileID: 8300000, guid: 835d83f74be9cae488cde820105dd03e, type: 3}
+  DogWoofScaryOnPushChance: 1
+  DogWoofScaryOnScareWolfChance: 1
+  CoinCling: {fileID: 8300000, guid: 715a5c264e0b60343a35c1b57fb65d50, type: 3}
   Fence: {fileID: 4615831481134257198, guid: 511d6f37534de034da9defea48b29379, type: 3}
   Trap: {fileID: 4551350525153310473, guid: c91ec7ac63e953244a043aac421f09f6, type: 3}

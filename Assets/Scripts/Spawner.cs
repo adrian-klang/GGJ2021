@@ -78,7 +78,8 @@ public class Spawner : MonoBehaviour
         {
             var spawnPos = LevelConfig.WolfSpawners[Random.Range(0, LevelConfig.WolfSpawners.Count - 1)];
 
-            Instantiate(Wolf, spawnPos, Wolf.transform.rotation);
+            var wolfGO = Instantiate(Wolf, spawnPos, Wolf.transform.rotation);
+            wolfGO.GetComponent<Wolf>().PlayGrowlAudio();
         }
     }
 

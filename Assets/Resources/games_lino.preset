@@ -1,0 +1,300 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: games_lino
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 6a276796d6bbd30458e7fbbaec30ab90,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SheepAmount
+    value: 50
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SpawnWorldWidth
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SpawnWorldLength
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogMoveForce
+    value: 120
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushForce
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushRadius
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[0].time
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[0].value
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[0].inSlope
+    value: -0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[0].outSlope
+    value: -0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[0].tangentMode
+    value: 34
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[0].weightedMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[0].inWeight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[0].outWeight
+    value: 0.33333334
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[1].time
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[1].value
+    value: 0.3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[1].inSlope
+    value: -0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[1].outSlope
+    value: -0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[1].tangentMode
+    value: 34
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[1].weightedMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[1].inWeight
+    value: 0.33333334
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_Curve.Array.data[1].outWeight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_PreInfinity
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_PostInfinity
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPushCurve.m_RotationOrder
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullForce
+    value: 13
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullRadius
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[0].time
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[0].value
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[0].inSlope
+    value: -0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[0].outSlope
+    value: -0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[0].tangentMode
+    value: 34
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[0].weightedMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[0].inWeight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[0].outWeight
+    value: 0.33333334
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[1].time
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[1].value
+    value: 0.3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[1].inSlope
+    value: -0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[1].outSlope
+    value: -0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[1].tangentMode
+    value: 34
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[1].weightedMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[1].inWeight
+    value: 0.33333334
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_Curve.Array.data[1].outWeight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_PreInfinity
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_PostInfinity
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogPullCurve.m_RotationOrder
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SeparationForce
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: AlignmentForce
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: CohesionForce
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SeparationRadius
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: AlignmentRadius
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: CohesionRadius
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: WolfAttackRadius
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: WolfMoveForce
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: WolfChangeTargetDiff
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: WolfSecondsBeforeGettingUnscared
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DayNightCycleDurationInSeconds
+    value: 90
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DayNightThreshold
+    value: 0.4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: FollowDamp
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Distance
+    value: 20
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: TamedSheepCoins
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: AliveSheepCoins
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: StartingCoinsCount
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: FenceValue
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: WolfTrapValue
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: MessageTextTimeout
+    value: 3
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []

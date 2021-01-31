@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Unity.Collections;
+﻿using System.Collections;
 using Unity.Entities;
-using Unity.Jobs;
-using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>
@@ -13,6 +9,8 @@ public class Sheep : MonoBehaviour {
     public GameConfig Config;
     public Rigidbody Rigidbody;
     public Entity sheepEntity;
+
+    private AudioSource audioSource;
 
     // Is this sheep owned by the player
     private bool tamed;
@@ -24,6 +22,30 @@ public class Sheep : MonoBehaviour {
                 OnSetTamed(value);
             }
         }
+    }
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        StartCoroutine(PlayBaaAudio());
+    }
+
+    private IEnumerator PlayBaaAudio()
+    {
+        yield return new WaitForSeconds(Random.Range(0, 3));
+
+        var randomChance = Random.Range(0f, 1f);
+        if (randomChance < Config.SheepBaaChance)
+        {
+            audioSource.PlayOneShot(Config.SheepBaa[Random.Range(0, Config.SheepBaa.Count - 1)]);
+        }
+
+        yield return PlayBaaAudio();
+    }
+
+    public void PlayDieAudio()
+    {
+        audioSource.PlayOneShot(Config.SheepDying);
     }
 
     private void OnSetTamed(bool tamed) {
