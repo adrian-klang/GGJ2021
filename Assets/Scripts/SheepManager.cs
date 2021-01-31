@@ -17,11 +17,11 @@ public class SheepManagerSystem : ComponentSystem {
             NativeLeakDetection.Mode = NativeLeakDetectionMode.EnabledWithStackTrace;
         }
 
-        var sheepQuery = GetEntityQuery(typeof(SheepRenderer), typeof(Translation));
-        var inputTranslations = sheepQuery.ToComponentDataArray<Translation>(Allocator.TempJob);
+        var inputTranslations = new NativeArray<Translation>(Sheeps.Count, Allocator.TempJob);
         var inputVelocities = new NativeArray<float2>(Sheeps.Count, Allocator.TempJob);
         for (var i = 0; i < Sheeps.Count; i++) {
             inputVelocities[i] = Sheeps[i].Rigidbody.velocity.normalized;
+            inputTranslations[i] = new Translation {Value = Sheeps[i].transform.position};
         }
         
         var results = new NativeArray<float3>(Sheeps.Count, Allocator.TempJob);
