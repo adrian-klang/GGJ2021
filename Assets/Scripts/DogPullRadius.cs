@@ -31,6 +31,10 @@ public class DogPullRadius : MonoBehaviour {
 
     public void Apply(float force) {
         foreach (var sheep in sheeps) {
+            if (sheep == null) {
+                continue;
+            }
+            
             var l = (transform.position - sheep.transform.position).sqrMagnitude / radiusSqr;
             var f = (transform.position - sheep.transform.position).normalized;
             sheep.Rigidbody.AddForce(f * (force * GameConfig.DogPullCurve.Evaluate(l)));

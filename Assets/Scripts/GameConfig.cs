@@ -49,4 +49,8 @@ public class GameConfig : ScriptableObject {
 
     [Header("UI")]
     public float MessageTextTimeout = 3;
+
+    [Header("Prefabs")]
+    public GameObject Fence;
+    public GameObject Trap;
 }
