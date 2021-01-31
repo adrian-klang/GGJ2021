@@ -6,6 +6,8 @@ public class UI : MonoBehaviour {
     public Text CoinsCountText;
     public Text FenceValueText;
     public Text WolfTrapValueText;
+    public Text SheepCountText;
+    public Text DayCountText;
     public PlayerWallet Wallet;
     public GameConfig Config;
     public Text MessageText;
@@ -48,6 +50,8 @@ public class UI : MonoBehaviour {
         CoinsCountText.text = Wallet.GetTotalCoins().ToString();
         FenceValueText.text = Config.FenceValue.ToString();
         WolfTrapValueText.text = Config.WolfTrapValue.ToString();
+        SheepCountText.text = SheepManagerSystem.Sheeps.Count.ToString();
+        DayCountText.text = DayNightCycle.DayCounter.ToString();
 
         if (currentPlacementInstance != null) {
             var ray = Cam.ScreenPointToRay(Input.mousePosition);
