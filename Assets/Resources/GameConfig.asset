@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a276796d6bbd30458e7fbbaec30ab90, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  SheepAmount: 750
+  SheepAmount: 500
   SpawnWorldWidth: 256
   SpawnWorldLength: 256
   DogMoveForce: 300
