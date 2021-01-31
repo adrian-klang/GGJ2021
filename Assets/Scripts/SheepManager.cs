@@ -174,7 +174,7 @@ public class SheepManagerSystem : ComponentSystem {
                 totalForce.xy = math.normalize(totalForce.xy);
             }
 
-            OutputResults[i] = new float3(totalForce, (tamed & Properties[i].y == 1) ? 1.0f : 0.0f);
+            OutputResults[i] = new float3(totalForce, (tamed || Properties[i].y == 1) ? 1.0f : 0.0f);
         }
     }
 }
