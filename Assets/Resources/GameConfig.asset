@@ -15,9 +15,9 @@ MonoBehaviour:
   SheepAmount: 50
   SpawnWorldWidth: 1
   SpawnWorldLength: 1
-  DogMoveForce: 25
-  DogPushForce: 30
-  DogPushRadius: 10
+  DogMoveForce: 30
+  DogPushForce: 40
+  DogPushRadius: 9
   DogPushCurve:
     serializedVersion: 2
     m_Curve:
@@ -43,7 +43,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   DogPullForce: 60
-  DogPullRadius: 10
+  DogPullRadius: 8
   DogPullCurve:
     serializedVersion: 2
     m_Curve:
@@ -68,18 +68,18 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  SeparationForce: 1
-  AlignmentForce: 2
-  CohesionForce: 3
+  SeparationForce: 6
+  AlignmentForce: 1
+  CohesionForce: 1
   SeparationRadius: 1
-  AlignmentRadius: 2
-  CohesionRadius: 3
-  WolfAttackRadius: 5
+  AlignmentRadius: 3
+  CohesionRadius: 5
+  WolfAttackRadius: 3
   WolfMoveForce: 15
   WolfChangeTargetDiff: 10
   WolfSecondsBeforeGettingUnscared: 5
-  DayNightCycleDurationInSeconds: 30
-  DayNightThreshold: 0.75
+  DayNightCycleDurationInSeconds: 60
+  DayNightThreshold: 0.5
   FollowDamp: 1
   Distance: 20
   TamedSheepCoins: 1

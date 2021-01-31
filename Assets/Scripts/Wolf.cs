@@ -60,7 +60,7 @@ public class Wolf : MonoBehaviour {
         float closestDistSqrd = Mathf.Infinity;
 
         foreach (var sheep in AttackRadiusSheep) {
-            if (sheep == null || !sheep.GetComponent<Sheep>().Tamed) {
+            if (sheep == null) {
                 continue;
             }
             
@@ -85,6 +85,7 @@ public class Wolf : MonoBehaviour {
         if (other.gameObject.CompareTag("Sheep")) {
             if (other.gameObject.GetComponent<Sheep>().Tamed) {
                 var sheep = other.gameObject.GetComponent<Sheep>();
+                AttackRadiusSheep.Remove(other.gameObject);
                 SheepManagerSystem.Sheeps.Remove(sheep);
                 Destroy(other.gameObject);
                 entityManager.DestroyEntity(sheep.sheepEntity);
