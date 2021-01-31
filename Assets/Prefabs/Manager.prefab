@@ -68,6 +68,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 823154b4dd5b00b49a2dfdfc240e3dde, type: 2}
   Light: {fileID: 0}
+  DayTopColor: {r: 0.5411765, g: 0.9490196, b: 1.7568628, a: 1}
+  DayMiddleColor: {r: 1, g: 1, b: 1, a: 1}
+  DayBottomColor: {r: 0.047169805, g: 0.03144654, b: 0, a: 1}
+  NightTopColor: {r: 0, g: 0.20833302, b: 1, a: 1}
+  NightMiddleColor: {r: 0.007843138, g: 0, b: 0.36078432, a: 1}
+  NightBottomColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &-6995926517829892311
 MonoBehaviour:
   m_ObjectHideFlags: 0
