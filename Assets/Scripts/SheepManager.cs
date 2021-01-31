@@ -24,6 +24,7 @@ public class SheepManagerSystem : ComponentSystem {
             inputTranslations[i] = new Translation {Value = Sheeps[i].transform.position};
         }
 
+        var sheepQuery = GetEntityQuery(typeof(SheepRenderer), typeof(Translation));
         NativeArray<SheepRenderer> sheepRenderers = new NativeArray<SheepRenderer>();
         NativeArray<LocalToWorld> sheepMatrices = new NativeArray<LocalToWorld>();
         if (SheepScriptableRendererFeature.instance != null) {
