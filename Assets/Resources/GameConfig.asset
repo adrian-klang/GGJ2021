@@ -70,10 +70,10 @@ MonoBehaviour:
     m_RotationOrder: 4
   SeparationForce: 8
   AlignmentForce: 2
-  CohesionForce: 2
+  CohesionForce: 3
   SeparationRadius: 1.5
   AlignmentRadius: 4
-  CohesionRadius: 6
+  CohesionRadius: 12
   SheepRotationLerp: 0.5
   WolfAttackRadius: 5
   WolfMoveForce: 50
