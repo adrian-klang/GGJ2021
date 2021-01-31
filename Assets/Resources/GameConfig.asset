@@ -88,7 +88,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   FollowDamp: 1
-  Distance: 20
+  Distance: 40
   TamedSheepCoins: 1
   AliveSheepCoins: 1
   StartingCoinsCount: 0
