@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Wolf : MonoBehaviour {
     public GameConfig Config;
@@ -11,6 +13,8 @@ public class Wolf : MonoBehaviour {
     public bool IsScared;
     [HideInInspector]
     public Vector3 DogScarePosition;
+
+    public Animator animator;
 
     private Rigidbody rigidbody;
     private AudioSource audioSource;
@@ -27,6 +31,15 @@ public class Wolf : MonoBehaviour {
             audioSource = GetComponent<AudioSource>();
         }
         audioSource.PlayOneShot(Config.WolfGrowl[Random.Range(0, Config.WolfGrowl.Count - 1)]);
+    }
+
+    private void Update() {
+        if (rigidbody.velocity.magnitude > 0.1f) {
+            animator.SetFloat("Run", 10);
+            transform.forward = rigidbody.velocity.normalized;
+        } else {
+            animator.SetFloat("Run", 0);
+        }
     }
 
     private void FixedUpdate() {

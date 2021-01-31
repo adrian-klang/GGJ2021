@@ -71,6 +71,12 @@ public class GameInput : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
             moveDog.x = 1;
         }
+        
+        // Exit
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
         if (state == InputState.Game) {
             // Pull
