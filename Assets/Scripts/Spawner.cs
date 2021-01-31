@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour
     public LevelConfig LevelConfig;
     public DayNightCycle DayNightCycle;
     public PlayerWallet PlayerWallet;
+    public UI UI;
     
     private EntityManager entityManager;
     private EntityArchetype entityArchetype;
@@ -31,6 +32,7 @@ public class Spawner : MonoBehaviour
     {
         if (!spawnedWolves && DayNightCycle.IsItNight())
         {
+            UI.ShowMessage("Night has arrived. Prepare for being eaten alive!");
             Debug.Log("It's night");
             SpawnWolves(DayNightCycle.DayCounter);
             DayNightCycle.DayCounter++;
@@ -90,15 +92,20 @@ public class Spawner : MonoBehaviour
         }
     }
     
-    private void AddCoinsPerSheep()
-    {
+    private void AddCoinsPerSheep() {
+        var sheepCount = 0;
+        var coins = 0;
         foreach (var sheep in SheepManagerSystem.Sheeps)
         {
-            if (sheep.Tamed)
-            {
-                PlayerWallet.AddCoins(Config.AliveSheepCoins);
+            if (sheep.Tamed) {
+                sheepCount++;
+                coins += Config.AliveSheepCoins;
             }
         }
+        
+        PlayerWallet.AddCoins(coins);
+        
+        UI.ShowMessage($"You've survived the night! {sheepCount} sheep are still alive, you won {coins} coins!");
     }
     
     private Entity CreateInstance(EntityArchetype archetype, int idx, Vector3 position, GameObject prefab) {
