@@ -83,12 +83,13 @@ public class Wolf : MonoBehaviour {
         var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
         
         if (other.gameObject.CompareTag("Sheep")) {
-            if (other.gameObject.GetComponent<Sheep>().Tamed) {
-                var sheep = other.gameObject.GetComponent<Sheep>();
+            var sheep = other.gameObject.GetComponent<Sheep>();
+            if (sheep.Tamed) {
+                sheep.gameObject.SetActive(false);
                 AttackRadiusSheep.Remove(other.gameObject);
-                SheepManagerSystem.Sheeps.Remove(sheep);
-                Destroy(other.gameObject);
-                entityManager.DestroyEntity(sheep.sheepEntity);
+                //SheepManagerSystem.Sheeps.Remove(sheep);
+                //Destroy(other.gameObject);
+                //entityManager.DestroyEntity(sheep.sheepEntity);
             }
         }
     }
