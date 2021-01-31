@@ -39,14 +39,15 @@
                 float3 normalOS = VertexBuffer[input.vertexId].normalOS;
 
                 // Sheep scale
-                float4x4 localToWorld = InstanceResourcesBuffer[input.instanceID].localToWorld;
+                float4x4 localToWorld = InstanceMatrixBuffer[input.instanceID];
                 positionOS.xyz *= 1.0f + (hash * 2.0f - 1.0f) * 0.3f;
                 float3 positionWS = mul(localToWorld, positionOS).xyz;
 
                 // Sheep animation
                 float x = hash + _Time.z;
                 float jump = sin((x * 2.0 - 0.5) * PI) * 0.5 + 0.5;
-                positionWS.y += jump;
+                // TODO: Improve this.
+                positionWS.y += jump * smoothstep(0.0f, 1.0f, saturate(InstanceResourcesBuffer[input.instanceID].velocity / 4.0f));
 
                 output.positionCS = TransformWorldToHClip(positionWS);
 
