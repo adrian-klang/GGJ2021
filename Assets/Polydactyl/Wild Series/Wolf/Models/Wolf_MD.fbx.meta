@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: 97fd1bcc9f20ab74ea148fd25ea649a7
+timeCreated: 1524458219
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: chest
+    100002: ear.L
+    100004: ear.R
+    100006: Eyes.Closed
+    100008: eyes.closed
+    100010: Eyes.Confused
+    100012: eyes.confused
+    100014: Eyes.Focus
+    100016: eyes.focus
+    100018: Eyes.Happy
+    100020: eyes.happy
+    100022: Eyes.Mad
+    100024: eyes.mad
+    100026: Eyes.Open
+    100028: eyes.open
+    100030: Eyes.Sad
+    100032: eyes.sad
+    100034: foot.B.L
+    100036: foot.B.R
+    100038: foot.F.L
+    100040: foot.F.R
+    100042: head
+    100044: leg.lower.B.L
+    100046: leg.lower.B.R
+    100048: leg.lower.F.L
+    100050: leg.lower.F.R
+    100052: leg.upper.B.L
+    100054: leg.upper.B.R
+    100056: leg.upper.F.L
+    100058: leg.upper.F.R
+    100060: mouth
+    100062: RedPanda.MD
+    100064: //RootNode
+    100066: Rig
+    100068: root
+    100070: tail
+    100072: tail.01
+    100074: torso
+    100076: Wolf.MD
+    400000: chest
+    400002: ear.L
+    400004: ear.R
+    400006: Eyes.Closed
+    400008: eyes.closed
+    400010: Eyes.Confused
+    400012: eyes.confused
+    400014: Eyes.Focus
+    400016: eyes.focus
+    400018: Eyes.Happy
+    400020: eyes.happy
+    400022: Eyes.Mad
+    400024: eyes.mad
+    400026: Eyes.Open
+    400028: eyes.open
+    400030: Eyes.Sad
+    400032: eyes.sad
+    400034: foot.B.L
+    400036: foot.B.R
+    400038: foot.F.L
+    400040: foot.F.R
+    400042: head
+    400044: leg.lower.B.L
+    400046: leg.lower.B.R
+    400048: leg.lower.F.L
+    400050: leg.lower.F.R
+    400052: leg.upper.B.L
+    400054: leg.upper.B.R
+    400056: leg.upper.F.L
+    400058: leg.upper.F.R
+    400060: mouth
+    400062: RedPanda.MD
+    400064: //RootNode
+    400066: Rig
+    400068: root
+    400070: tail
+    400072: tail.01
+    400074: torso
+    400076: Wolf.MD
+    4300000: RedPanda.MD
+    4300002: Eyes.Mad
+    4300004: Eyes.Closed
+    4300006: Eyes.Sad
+    4300008: Eyes.Focus
+    4300010: Eyes.Confused
+    4300012: Eyes.Open
+    4300014: Eyes.Happy
+    4300016: Wolf.MD
+    9500000: //RootNode
+    13700000: Eyes.Closed
+    13700002: Eyes.Confused
+    13700004: Eyes.Focus
+    13700006: Eyes.Happy
+    13700008: Eyes.Mad
+    13700010: Eyes.Open
+    13700012: Eyes.Sad
+    13700014: RedPanda.MD
+    13700016: Wolf.MD
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 1
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: root
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 91e6426358bfbaa4b973beddc055cde9,
+    type: 3}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
