@@ -25,16 +25,31 @@ public class Dog : MonoBehaviour {
         var randomChance = Random.Range(0f, 1f);
         if (randomChance < Config.DogWoofScaryOnPushChance)
         {
-            audioSource.PlayOneShot(Config.DogWoofScary);
+            if (audioSource.clip != Config.DogWoofScary) {
+                audioSource.Stop();
+            }
+        
+            if (!audioSource.isPlaying) {
+                audioSource.pitch = Random.Range(0.8f, 1.2f);
+                audioSource.clip = Config.DogWoofScary;
+                audioSource.Play();
+            }
         }
     }
     
     public void PlayFriendlyAudio()
     {
         var randomChance = Random.Range(0f, 1f);
-        if (randomChance < Config.DogWoofFriendlyOnPullChance)
-        {
-            audioSource.PlayOneShot(Config.DogWoofFriendly);
+        if (randomChance < Config.DogWoofFriendlyOnPullChance) {
+            if (audioSource.clip != Config.DogWoofFriendly) {
+                audioSource.Stop();
+            }
+        
+            if (!audioSource.isPlaying) {
+                audioSource.pitch = Random.Range(0.8f, 1.2f);
+                audioSource.clip = Config.DogWoofFriendly;
+                audioSource.Play();
+            }
         }
     }
 
