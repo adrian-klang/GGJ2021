@@ -113,6 +113,8 @@ public class SheepManagerSystem : ComponentSystem {
             var alignmentVector = new float2();
             var alignmentCount = 0;
 
+            bool firstSheepTamed = Properties[i].y == 1;
+            
             if (Properties[i].x == 1) {
                 for (var j = 0; j < InputTranslations.Length; j++) {
                     if (Properties[j].x == 0) {
@@ -152,13 +154,17 @@ public class SheepManagerSystem : ComponentSystem {
             if (cohesionCount > 0) {
                 cohesionVector /= cohesionCount;
                 totalForce += math.normalize(cohesionVector - posOne) * CohesionForce;
-                tamed = true;
+                
+                if (firstSheepTamed)
+                    tamed = true;
             }
 
             if (separationCount > 0) {
                 separationVector /= separationCount;
                 totalForce += math.normalize(posOne - separationVector) * SeparationForce;
-                tamed = true;
+                
+                if (firstSheepTamed)
+                    tamed = true;
             }
 
             if (alignmentCount > 0) {
@@ -167,7 +173,8 @@ public class SheepManagerSystem : ComponentSystem {
                     totalForce += alignmentVector * AlignmentForce;
                 }
 
-                tamed = true;
+                if (firstSheepTamed)
+                    tamed = true;
             }
 
             if (totalForce.x != 0.0f || totalForce.y != 0.0f) {

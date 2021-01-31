@@ -27,11 +27,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.size
-    value: 13
+    value: 9
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[0].x
-    value: 25
+    value: 16
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[0].y
@@ -39,11 +39,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[0].z
-    value: -75
+    value: -156
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[1].x
-    value: -25
+    value: -50
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[1].y
@@ -51,11 +51,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[1].z
-    value: -75
+    value: -152
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[2].x
-    value: -75
+    value: -140
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[2].y
@@ -63,11 +63,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[2].z
-    value: -75
+    value: -40
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[3].x
-    value: -75
+    value: -144
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[3].y
@@ -75,11 +75,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[3].z
-    value: -30
+    value: 90
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[4].x
-    value: -75
+    value: -57
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[4].y
@@ -87,11 +87,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[4].z
-    value: 30
+    value: 200
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[5].x
-    value: -75
+    value: 148
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[5].y
@@ -99,11 +99,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[5].z
-    value: 100
+    value: 206
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[6].x
-    value: -5
+    value: 250
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[6].y
@@ -111,11 +111,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[6].z
-    value: 100
+    value: 74
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[7].x
-    value: 75
+    value: 219
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[7].y
@@ -123,11 +123,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[7].z
-    value: 100
+    value: -27
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[8].x
-    value: 125
+    value: 136
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[8].y
@@ -135,55 +135,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfSpawners.Array.data[8].z
-    value: 100
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[9].x
-    value: 125
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[9].y
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[9].z
-    value: 25
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[10].x
-    value: 125
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[10].y
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[10].z
-    value: -25
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[11].x
-    value: 125
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[11].y
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[11].z
-    value: -75
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[12].x
-    value: 75
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[12].y
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolfSpawners.Array.data[12].z
-    value: -75
+    value: -126
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolvesPerDay.Array.size
@@ -191,22 +143,22 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolvesPerDay.Array.data[0]
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: WolvesPerDay.Array.data[1]
     value: 2
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: WolvesPerDay.Array.data[2]
+    propertyPath: WolvesPerDay.Array.data[1]
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: WolvesPerDay.Array.data[3]
+    propertyPath: WolvesPerDay.Array.data[2]
     value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: WolvesPerDay.Array.data[3]
+    value: 6
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: WolvesPerDay.Array.data[4]
-    value: 5
+    value: 9
     objectReference: {fileID: 0}
   m_ExcludedProperties: []

@@ -27,7 +27,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: SheepAmount
-    value: 50
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: SpawnWorldWidth
@@ -39,7 +39,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: DogMoveForce
-    value: 180
+    value: 220
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: DogPushForce
@@ -131,7 +131,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: DogPullForce
-    value: 13
+    value: 15
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: DogPullRadius
@@ -219,7 +219,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: SeparationForce
-    value: 6
+    value: 8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: AlignmentForce
@@ -247,11 +247,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfAttackRadius
-    value: 6
+    value: 5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfMoveForce
-    value: 20
+    value: 25
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfChangeTargetDiff
@@ -371,11 +371,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: FenceValue
-    value: 10
+    value: 100
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfTrapValue
-    value: 10
+    value: 50
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: MessageTextTimeout
@@ -383,50 +383,80 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: SheepBaa.Array.size
-    value: 0
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: SheepBaa.Array.data[0]
+    value: 
+    objectReference: {fileID: 8300000, guid: f8da141a86e177f48a8279b7c442452b, type: 3}
+  - target: {fileID: 0}
+    propertyPath: SheepBaa.Array.data[1]
+    value: 
+    objectReference: {fileID: 8300000, guid: 1f5c40b678526c64ca1d4cd524713aa3, type: 3}
+  - target: {fileID: 0}
+    propertyPath: SheepBaa.Array.data[2]
+    value: 
+    objectReference: {fileID: 8300000, guid: 54078005288f46244ad29195ab9a9bff, type: 3}
+  - target: {fileID: 0}
+    propertyPath: SheepBaa.Array.data[3]
+    value: 
+    objectReference: {fileID: 8300000, guid: 7bd2b7636c04d9d48a0ceda67eacc926, type: 3}
+  - target: {fileID: 0}
     propertyPath: SheepBaaChance
-    value: 0
+    value: 0.02
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfGrowl.Array.size
-    value: 0
+    value: 3
     objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: WolfGrowl.Array.data[0]
+    value: 
+    objectReference: {fileID: 8300000, guid: e066d369e1ad36241bdeda161a89a643, type: 3}
+  - target: {fileID: 0}
+    propertyPath: WolfGrowl.Array.data[1]
+    value: 
+    objectReference: {fileID: 8300000, guid: 14007b7249a2bbb41b2028a64199b04b, type: 3}
+  - target: {fileID: 0}
+    propertyPath: WolfGrowl.Array.data[2]
+    value: 
+    objectReference: {fileID: 8300000, guid: 8f71ec203bbcc6c49a79056fe351d1f2, type: 3}
   - target: {fileID: 0}
     propertyPath: SheepDying
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 8300000, guid: 905f7e445768b064e88c4f0148638e83, type: 3}
   - target: {fileID: 0}
     propertyPath: DogWoofFriendly
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 8300000, guid: 74f0849b8fd8ca346bb4593644d2752d, type: 3}
   - target: {fileID: 0}
     propertyPath: DogWoofFriendlyOnPullChance
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: DogWoofScary
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 8300000, guid: 835d83f74be9cae488cde820105dd03e, type: 3}
   - target: {fileID: 0}
     propertyPath: DogWoofScaryOnPushChance
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: DogWoofScaryOnScareWolfChance
-    value: 0
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: CoinCling
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 8300000, guid: 715a5c264e0b60343a35c1b57fb65d50, type: 3}
   - target: {fileID: 0}
     propertyPath: Fence
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 4615831481134257198, guid: 511d6f37534de034da9defea48b29379,
+      type: 3}
   - target: {fileID: 0}
     propertyPath: Trap
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 4551350525153310473, guid: c91ec7ac63e953244a043aac421f09f6,
+      type: 3}
   m_ExcludedProperties: []
