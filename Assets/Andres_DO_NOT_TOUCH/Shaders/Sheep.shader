@@ -32,16 +32,19 @@
             {
                 Varyings output;
                 output.instanceID = input.instanceID;
+                float hash = Hash(input.instanceID);
 
                 float4 positionOS = VertexBuffer[input.vertexId].positionOS;
                 float2 texcoord = VertexBuffer[input.vertexId].texcoord;
                 float3 normalOS = VertexBuffer[input.vertexId].normalOS;
 
+                // Sheep scale
                 float4x4 localToWorld = InstanceResourcesBuffer[input.instanceID].localToWorld;
+                positionOS.xyz *= 1.0f + (hash * 2.0f - 1.0f) * 0.3f;
                 float3 positionWS = mul(localToWorld, positionOS).xyz;
 
                 // Sheep animation
-                float x = Hash(input.instanceID) + _Time.z;
+                float x = hash + _Time.z;
                 float jump = sin((x * 2.0 - 0.5) * PI) * 0.5 + 0.5;
                 positionWS.z += jump;
 
@@ -58,8 +61,15 @@
             float4 SheepFragment(Varyings input) : SV_TARGET
             {
                 UNITY_SETUP_INSTANCE_ID(input);
+                float hash = Hash(input.instanceID);
+                
                 float4 baseMap = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv);
                 float4 baseColor = UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _BaseColor);
+
+                float3 baseColorHSV = RgbToHsv(baseColor.rgb);
+                baseColorHSV.r = (baseColorHSV.r + (hash * 2.0f - 1.0f) * 0.15f) % 1.0f;
+                baseColor.rgb = HsvToRgb(baseColorHSV);
+                
                 float4 albedo = baseMap * baseColor;
 
                 // Compute ambient lighting.
