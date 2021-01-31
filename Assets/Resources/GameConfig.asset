@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a276796d6bbd30458e7fbbaec30ab90, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  SheepAmount: 50
+  SheepAmount: 1
   SpawnWorldWidth: 1
   SpawnWorldLength: 1
-  DogMoveForce: 180
+  DogMoveForce: 210
   DogPushForce: 20
   DogPushRadius: 6
   DogPushCurve:
@@ -42,8 +42,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  DogPullForce: 13
-  DogPullRadius: 5
+  DogPullForce: 15
+  DogPullRadius: 7
   DogPullCurve:
     serializedVersion: 2
     m_Curve:
@@ -92,7 +92,7 @@ MonoBehaviour:
   TamedSheepCoins: 1
   AliveSheepCoins: 1
   StartingCoinsCount: 0
-  FenceValue: 10
+  FenceValue: 20
   WolfTrapValue: 10
   MessageTextTimeout: 3
   SheepBaa:
@@ -105,7 +105,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e066d369e1ad36241bdeda161a89a643, type: 3}
   - {fileID: 8300000, guid: 14007b7249a2bbb41b2028a64199b04b, type: 3}
   - {fileID: 8300000, guid: 8f71ec203bbcc6c49a79056fe351d1f2, type: 3}
-  SheepDying: {fileID: 8300000, guid: d8b8518690050b6488793a601208f245, type: 3}
+  SheepDying: {fileID: 8300000, guid: 905f7e445768b064e88c4f0148638e83, type: 3}
   DogWoofFriendly: {fileID: 8300000, guid: 74f0849b8fd8ca346bb4593644d2752d, type: 3}
   DogWoofFriendlyOnPullChance: 1
   DogWoofScary: {fileID: 8300000, guid: 835d83f74be9cae488cde820105dd03e, type: 3}

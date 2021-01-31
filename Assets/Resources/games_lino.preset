@@ -39,7 +39,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: DogMoveForce
-    value: 120
+    value: 180
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: DogPushForce
@@ -239,7 +239,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: CohesionRadius
-    value: 5
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SheepRotationLerp
+    value: 0.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: WolfAttackRadius
@@ -264,6 +268,22 @@ Preset:
   - target: {fileID: 0}
     propertyPath: DayNightThreshold
     value: 0.4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DayNightLightCurve.m_Curve.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DayNightLightCurve.m_PreInfinity
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DayNightLightCurve.m_PostInfinity
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DayNightLightCurve.m_RotationOrder
+    value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: FollowDamp
@@ -296,5 +316,53 @@ Preset:
   - target: {fileID: 0}
     propertyPath: MessageTextTimeout
     value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SheepBaa.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SheepBaaChance
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: WolfGrowl.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SheepDying
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogWoofFriendly
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogWoofFriendlyOnPullChance
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogWoofScary
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogWoofScaryOnPushChance
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: DogWoofScaryOnScareWolfChance
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: CoinCling
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Fence
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: Trap
+    value: 
     objectReference: {fileID: 0}
   m_ExcludedProperties: []
