@@ -20,11 +20,11 @@ struct MeshBufferAttributes {
 };
 StructuredBuffer<MeshBufferAttributes> VertexBuffer;
 
+StructuredBuffer<float4x4> InstanceMatrixBuffer;
 struct InstanceResources {
-	float4x4 localToWorld;
+	float velocity;
 };
 StructuredBuffer<InstanceResources> InstanceResourcesBuffer;
-
 
 // Ambient lighting.
 real4 sheep_SHAr;

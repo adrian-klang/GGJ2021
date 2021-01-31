@@ -66,16 +66,19 @@ public class SheepScriptableRendererFeature : ScriptableRendererFeature {
     private readonly Dictionary<int, SheepPass> passes = new Dictionary<int, SheepPass>();
     private GraphicsBuffer vertexBuffer;
     private GraphicsBuffer indexBuffer;
-    private GraphicsBuffer instancedResourcesBuffer;
+    private GraphicsBuffer instanceMatrixBuffer;
+    private GraphicsBuffer instanceResourcesBuffer;
     private GraphicsBuffer drawArgsBuffer;
 
     private static readonly int VertexBufferId = Shader.PropertyToID("VertexBuffer");
+    private static readonly int InstanceMatrixBufferId = Shader.PropertyToID("InstanceMatrixBuffer");
     private static readonly int InstanceResourcesBufferId = Shader.PropertyToID("InstanceResourcesBuffer");
     static readonly int[] _idSHA = {Shader.PropertyToID("sheep_SHAr"), Shader.PropertyToID("sheep_SHAg"), Shader.PropertyToID("sheep_SHAb")};
     static readonly int[] _idSHB = {Shader.PropertyToID("sheep_SHBr"), Shader.PropertyToID("sheep_SHBg"), Shader.PropertyToID("sheep_SHBb")};
     static readonly int _idSHC = Shader.PropertyToID("sheep_SHC");
     private const int VertexBufferStride = 36;
-    private const int InstanceResourcesStride = 64;
+    private const int InstanceMatrixStride = 64;
+    private const int InstanceResourcesStride = 4;
 
 #if UNITY_EDITOR
     private Mesh lastMesh;
@@ -90,8 +93,8 @@ public class SheepScriptableRendererFeature : ScriptableRendererFeature {
             InitializeIndexBuffer(sheepMesh);
         }
 
-        if (instancedResourcesBuffer == null) {
-            InitializeInstanceResourcesBuffer();
+        if (instanceMatrixBuffer == null || instanceResourcesBuffer == null) {
+            InitializeInstanceResourcesBuffers();
         }
 
         if (drawArgsBuffer == null) {
@@ -185,9 +188,11 @@ public class SheepScriptableRendererFeature : ScriptableRendererFeature {
         Debug.Log("Init Index Buffer");
     }
 
-    private void InitializeInstanceResourcesBuffer() {
-        instancedResourcesBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, MAX_SHEEP, InstanceResourcesStride);
-        Shader.SetGlobalBuffer(InstanceResourcesBufferId, instancedResourcesBuffer);
+    private void InitializeInstanceResourcesBuffers() {
+        instanceMatrixBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, MAX_SHEEP, InstanceMatrixStride);
+        instanceResourcesBuffer = new GraphicsBuffer(GraphicsBuffer.Target.Structured, MAX_SHEEP, InstanceResourcesStride);
+        Shader.SetGlobalBuffer(InstanceMatrixBufferId, instanceMatrixBuffer);
+        Shader.SetGlobalBuffer(InstanceResourcesBufferId, instanceResourcesBuffer);
         Debug.Log("Init Resources Buffer");
     }
 
@@ -209,15 +214,17 @@ public class SheepScriptableRendererFeature : ScriptableRendererFeature {
         material.SetVector(_idSHC, new Vector4(sh[0, 8], sh[2, 8], sh[1, 8], 1));
     }
 
-    public void SubmitRenderers(NativeArray<SheepRenderer> renderers, NativeArray<LocalToWorld> localToWorlds) {
-        instancedResourcesBuffer?.SetData(localToWorlds);
+    public void SubmitRenderers(NativeArray<LocalToWorld> localToWorlds, NativeArray<float> velocityMagintudes) {
+        instanceMatrixBuffer?.SetData(localToWorlds);
+        instanceResourcesBuffer?.SetData(velocityMagintudes);
     }
 
     private void OnDestroy() {
         vertexBuffer?.Dispose();
         indexBuffer?.Dispose();
         drawArgsBuffer?.Dispose();
-        instancedResourcesBuffer?.Dispose();
+        instanceMatrixBuffer?.Dispose();
+        instanceResourcesBuffer?.Dispose();
 
         foreach (var entry in passes) {
             entry.Value.Dispose();
